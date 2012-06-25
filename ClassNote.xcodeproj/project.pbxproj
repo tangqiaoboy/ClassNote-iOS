@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAC15988CD60065020C /* UIKit.framework */; };
+		85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAE15988CD60065020C /* Foundation.framework */; };
+		85AB0AB115988CD60065020C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AB015988CD60065020C /* CoreGraphics.framework */; };
+		85AB0AB715988CD60065020C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0AB515988CD60065020C /* InfoPlist.strings */; };
+		85AB0AB915988CD60065020C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AB815988CD60065020C /* main.m */; };
+		85AB0ABD15988CD60065020C /* HFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0ABC15988CD60065020C /* HFAppDelegate.m */; };
+		85AB0AC015988CD60065020C /* HFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0ABF15988CD60065020C /* HFViewController.m */; };
+		85AB0AC315988CD60065020C /* HFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0AC115988CD60065020C /* HFViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		85AB0AA815988CD60065020C /* ClassNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85AB0AAC15988CD60065020C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		85AB0AAE15988CD60065020C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		85AB0AB015988CD60065020C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		85AB0AB415988CD60065020C /* ClassNote-Info.plist */ = {isa = PBXFileReference; path = "ClassNote-Info.plist"; sourceTree = "<group>"; };
+		85AB0AB615988CD60065020C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85AB0AB815988CD60065020C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		85AB0ABA15988CD60065020C /* ClassNote-Prefix.pch */ = {isa = PBXFileReference; path = "ClassNote-Prefix.pch"; sourceTree = "<group>"; };
+		85AB0ABB15988CD60065020C /* HFAppDelegate.h */ = {isa = PBXFileReference; path = HFAppDelegate.h; sourceTree = "<group>"; };
+		85AB0ABC15988CD60065020C /* HFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFAppDelegate.m; sourceTree = "<group>"; };
+		85AB0ABE15988CD60065020C /* HFViewController.h */ = {isa = PBXFileReference; path = HFViewController.h; sourceTree = "<group>"; };
+		85AB0ABF15988CD60065020C /* HFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFViewController.m; sourceTree = "<group>"; };
+		85AB0AC215988CD60065020C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HFViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85AB0AA515988CD60065020C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */,
+				85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */,
+				85AB0AB115988CD60065020C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85AB0A9D15988CD50065020C = {
+			isa = PBXGroup;
+			children = (
+				85AB0AB215988CD60065020C /* ClassNote */,
+				85AB0AAB15988CD60065020C /* Frameworks */,
+				85AB0AA915988CD60065020C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85AB0AA915988CD60065020C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0AA815988CD60065020C /* ClassNote.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85AB0AAB15988CD60065020C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0AAC15988CD60065020C /* UIKit.framework */,
+				85AB0AAE15988CD60065020C /* Foundation.framework */,
+				85AB0AB015988CD60065020C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		85AB0AB215988CD60065020C /* ClassNote */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0ABB15988CD60065020C /* HFAppDelegate.h */,
+				85AB0ABC15988CD60065020C /* HFAppDelegate.m */,
+				85AB0ABE15988CD60065020C /* HFViewController.h */,
+				85AB0ABF15988CD60065020C /* HFViewController.m */,
+				85AB0AC115988CD60065020C /* HFViewController.xib */,
+				85AB0AB315988CD60065020C /* Supporting Files */,
+			);
+			path = ClassNote;
+			sourceTree = "<group>";
+		};
+		85AB0AB315988CD60065020C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0AB415988CD60065020C /* ClassNote-Info.plist */,
+				85AB0AB515988CD60065020C /* InfoPlist.strings */,
+				85AB0AB815988CD60065020C /* main.m */,
+				85AB0ABA15988CD60065020C /* ClassNote-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85AB0AA715988CD60065020C /* ClassNote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85AB0AC615988CD60065020C /* Build configuration list for PBXNativeTarget "ClassNote" */;
+			buildPhases = (
+				85AB0AA415988CD60065020C /* Sources */,
+				85AB0AA515988CD60065020C /* Frameworks */,
+				85AB0AA615988CD60065020C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClassNote;
+			productName = ClassNote;
+			productReference = 85AB0AA815988CD60065020C /* ClassNote.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85AB0A9F15988CD50065020C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HF;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = HackFisher;
+			};
+			buildConfigurationList = 85AB0AA215988CD50065020C /* Build configuration list for PBXProject "ClassNote" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 85AB0A9D15988CD50065020C;
+			productRefGroup = 85AB0AA915988CD60065020C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85AB0AA715988CD60065020C /* ClassNote */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85AB0AA615988CD60065020C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85AB0AB715988CD60065020C /* InfoPlist.strings in Resources */,
+				85AB0AC315988CD60065020C /* HFViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85AB0AA415988CD60065020C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85AB0AB915988CD60065020C /* main.m in Sources */,
+				85AB0ABD15988CD60065020C /* HFAppDelegate.m in Sources */,
+				85AB0AC015988CD60065020C /* HFViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		85AB0AB515988CD60065020C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85AB0AB615988CD60065020C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		85AB0AC115988CD60065020C /* HFViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85AB0AC215988CD60065020C /* en */,
+			);
+			name = HFViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85AB0AC415988CD60065020C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		85AB0AC515988CD60065020C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85AB0AC715988CD60065020C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ClassNote/ClassNote-Prefix.pch";
+				INFOPLIST_FILE = "ClassNote/ClassNote-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		85AB0AC815988CD60065020C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ClassNote/ClassNote-Prefix.pch";
+				INFOPLIST_FILE = "ClassNote/ClassNote-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85AB0AA215988CD50065020C /* Build configuration list for PBXProject "ClassNote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85AB0AC415988CD60065020C /* Debug */,
+				85AB0AC515988CD60065020C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85AB0AC615988CD60065020C /* Build configuration list for PBXNativeTarget "ClassNote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85AB0AC715988CD60065020C /* Debug */,
+				85AB0AC815988CD60065020C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85AB0A9F15988CD50065020C /* Project object */;
+}
