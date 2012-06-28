@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		852EC1BF159C4AA40018A30E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852EC1BE159C4AA40018A30E /* CoreData.framework */; };
+		852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */; };
+		852EC1D2159C50280018A30E /* HFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1D1159C50280018A30E /* HFClass.m */; };
+		852EC1D5159C50410018A30E /* HFLESSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1D4159C50410018A30E /* HFLESSON.m */; };
 		85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAC15988CD60065020C /* UIKit.framework */; };
 		85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAE15988CD60065020C /* Foundation.framework */; };
 		85AB0AB115988CD60065020C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AB015988CD60065020C /* CoreGraphics.framework */; };
@@ -33,6 +37,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		852EC1BE159C4AA40018A30E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		852EC1C2159C4AFA0018A30E /* ClassNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassNote.xcdatamodel; sourceTree = "<group>"; };
+		852EC1D0159C50280018A30E /* HFClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClass.h; sourceTree = "<group>"; };
+		852EC1D1159C50280018A30E /* HFClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClass.m; sourceTree = "<group>"; };
+		852EC1D3159C50410018A30E /* HFLESSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLESSON.h; sourceTree = "<group>"; };
+		852EC1D4159C50410018A30E /* HFLESSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLESSON.m; sourceTree = "<group>"; };
 		85AB0AA815988CD60065020C /* ClassNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AB0AAC15988CD60065020C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		85AB0AAE15988CD60065020C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -43,8 +53,8 @@
 		85AB0ABA15988CD60065020C /* ClassNote-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassNote-Prefix.pch"; sourceTree = "<group>"; };
 		85AB0ABB15988CD60065020C /* HFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFAppDelegate.h; sourceTree = "<group>"; };
 		85AB0ABC15988CD60065020C /* HFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFAppDelegate.m; sourceTree = "<group>"; };
-		85AB0ABE15988CD60065020C /* HFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFViewController.h; sourceTree = "<group>"; };
-		85AB0ABF15988CD60065020C /* HFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFViewController.m; sourceTree = "<group>"; };
+		85AB0ABE15988CD60065020C /* HFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HFViewController.h; path = ClassNote/HFViewController.h; sourceTree = "<group>"; };
+		85AB0ABF15988CD60065020C /* HFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HFViewController.m; path = ClassNote/HFViewController.m; sourceTree = "<group>"; };
 		85AB0AC215988CD60065020C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HFViewController.xib; sourceTree = "<group>"; };
 		85AB0ACA15988E050065020C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		85AB0AE415988E050065020C /* DTGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGridView.h; sourceTree = "<group>"; };
@@ -69,9 +79,9 @@
 		85F356751599628E000E1B6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTGridViewAppDelegate.h; sourceTree = "<group>"; };
 		85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridViewAppDelegate.m; sourceTree = "<group>"; };
-		85F35684159994D3000E1B6F /* HFClassEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassEditViewController.h; sourceTree = "<group>"; };
-		85F35685159994D3000E1B6F /* HFClassEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassEditViewController.m; sourceTree = "<group>"; };
-		85F35686159994D3000E1B6F /* HFClassEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassEditView.xib; sourceTree = "<group>"; };
+		85F35684159994D3000E1B6F /* HFClassEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFClassEditViewController.h; path = ClassNote/HFClassEditViewController.h; sourceTree = "<group>"; };
+		85F35685159994D3000E1B6F /* HFClassEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFClassEditViewController.m; path = ClassNote/HFClassEditViewController.m; sourceTree = "<group>"; };
+		85F35686159994D3000E1B6F /* HFClassEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HFClassEditView.xib; path = ClassNote/HFClassEditView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				852EC1BF159C4AA40018A30E /* CoreData.framework in Frameworks */,
 				85F356761599628E000E1B6F /* libsqlite3.dylib in Frameworks */,
 				85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */,
 				85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */,
@@ -89,9 +100,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		852EC1DA159C56830018A30E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85F35684159994D3000E1B6F /* HFClassEditViewController.h */,
+				85F35685159994D3000E1B6F /* HFClassEditViewController.m */,
+				85AB0ABE15988CD60065020C /* HFViewController.h */,
+				85AB0ABF15988CD60065020C /* HFViewController.m */,
+				85F35686159994D3000E1B6F /* HFClassEditView.xib */,
+				85AB0AC115988CD60065020C /* HFViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		85AB0A9D15988CD50065020C = {
 			isa = PBXGroup;
 			children = (
+				852EC1DA159C56830018A30E /* View Controllers */,
 				85F356751599628E000E1B6F /* libsqlite3.dylib */,
 				85AB0AC915988E050065020C /* DTGridView */,
 				85AB0AB215988CD60065020C /* ClassNote */,
@@ -111,6 +136,7 @@
 		85AB0AAB15988CD60065020C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				852EC1BE159C4AA40018A30E /* CoreData.framework */,
 				85AB0AAC15988CD60065020C /* UIKit.framework */,
 				85AB0AAE15988CD60065020C /* Foundation.framework */,
 				85AB0AB015988CD60065020C /* CoreGraphics.framework */,
@@ -124,17 +150,16 @@
 				85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */,
 				85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */,
 				85AB0ABB15988CD60065020C /* HFAppDelegate.h */,
+				85AB0ABC15988CD60065020C /* HFAppDelegate.m */,
 				85AB0B1D15989F540065020C /* HFClassGridViewCell.h */,
 				85AB0B1E15989F540065020C /* HFClassGridViewCell.m */,
-				85AB0ABC15988CD60065020C /* HFAppDelegate.m */,
-				85AB0ABE15988CD60065020C /* HFViewController.h */,
-				85F35684159994D3000E1B6F /* HFClassEditViewController.h */,
-				85F35685159994D3000E1B6F /* HFClassEditViewController.m */,
-				85F35686159994D3000E1B6F /* HFClassEditView.xib */,
 				85AB0B1B15989C470065020C /* ClassCellView.xib */,
-				85AB0ABF15988CD60065020C /* HFViewController.m */,
-				85AB0AC115988CD60065020C /* HFViewController.xib */,
 				85AB0AB315988CD60065020C /* Supporting Files */,
+				852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */,
+				852EC1D0159C50280018A30E /* HFClass.h */,
+				852EC1D1159C50280018A30E /* HFClass.m */,
+				852EC1D3159C50410018A30E /* HFLESSON.h */,
+				852EC1D4159C50410018A30E /* HFLESSON.m */,
 			);
 			path = ClassNote;
 			sourceTree = "<group>";
@@ -271,6 +296,9 @@
 				85AB0B1F15989F540065020C /* HFClassGridViewCell.m in Sources */,
 				85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */,
 				85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */,
+				852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */,
+				852EC1D2159C50280018A30E /* HFClass.m in Sources */,
+				852EC1D5159C50410018A30E /* HFLESSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +319,7 @@
 				85AB0AC215988CD60065020C /* en */,
 			);
 			name = HFViewController.xib;
+			path = ClassNote;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -383,6 +412,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				852EC1C2159C4AFA0018A30E /* ClassNote.xcdatamodel */,
+			);
+			currentVersion = 852EC1C2159C4AFA0018A30E /* ClassNote.xcdatamodel */;
+			path = ClassNote.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85AB0A9F15988CD50065020C /* Project object */;
 }

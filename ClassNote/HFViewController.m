@@ -24,7 +24,7 @@
  * 笔记界面，录音和拍照功能研究，图片声音存储。
  */
 
-@synthesize databaseFilePath;
+@synthesize databaseFilePath, managedObjectContext;
 
 - (id)init {
 	if (![super init])

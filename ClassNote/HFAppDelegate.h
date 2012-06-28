@@ -11,8 +11,19 @@
 @interface HFAppDelegate : UIResponder <UIApplicationDelegate> {
     UIWindow *window;
 	UINavigationController *navigationController;
+    
+    NSManagedObjectModel *managedObjectModel;
+    NSManagedObjectContext *managedObjectContext;	    
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
 }
 
 @property (nonatomic, retain) UIWindow *window;
+
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
 
 @end

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50d" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="HFClass" representedClassName="HFClass" syncable="YES">
+        <attribute name="dayinweek" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lesson_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="start" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="HFLESSON" representedClassName="HFLESSON" syncable="YES">
+        <attribute name="book" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HFClass" positionX="180" positionY="-63" width="128" height="135"/>
+        <element name="HFLESSON" positionX="160" positionY="192" width="128" height="105"/>
+    </elements>
+</model>

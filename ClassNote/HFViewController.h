@@ -11,9 +11,13 @@
 
 @interface HFViewController : DTGridViewController {
     NSArray *colours;
+    
+    NSManagedObjectModel *managedObjectModel;
 }
 
 @property (copy, nonatomic) NSString *databaseFilePath;
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (void)applicationWillResignActive:(NSNotification *)notification;
 
