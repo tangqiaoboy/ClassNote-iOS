@@ -13,22 +13,28 @@
 @implementation HFAppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
 
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    [navigationController release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[[HFViewController alloc] initWithNibName:@"HFViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    //self.viewController = [[[HFViewController alloc] initWithNibName:@"HFViewController" bundle:nil] autorelease];
+    
+    HFViewController *vc = [[HFViewController alloc] init];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [vc release];
+    
+    [window addSubview:navigationController.view];
+    //window.rootViewController = navigationController;
+    [window makeKeyAndVisible];
     return YES;
 }
 

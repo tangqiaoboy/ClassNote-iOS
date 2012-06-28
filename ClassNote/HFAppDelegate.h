@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class HFViewController;
+@interface HFAppDelegate : UIResponder <UIApplicationDelegate> {
+    UIWindow *window;
+	UINavigationController *navigationController;
+}
 
-@interface HFAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) HFViewController *viewController;
+@property (nonatomic, retain) UIWindow *window;
 
 @end

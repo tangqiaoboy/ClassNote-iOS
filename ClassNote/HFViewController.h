@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DTGridViewController.h"
 
-@interface HFViewController : UIViewController
+@interface HFViewController : DTGridViewController {
+    NSArray *colours;
+}
+
+@property (copy, nonatomic) NSString *databaseFilePath;
+
+- (void)applicationWillResignActive:(NSNotification *)notification;
 
 @end

@@ -15,6 +15,21 @@
 		85AB0ABD15988CD60065020C /* HFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0ABC15988CD60065020C /* HFAppDelegate.m */; };
 		85AB0AC015988CD60065020C /* HFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0ABF15988CD60065020C /* HFViewController.m */; };
 		85AB0AC315988CD60065020C /* HFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0AC115988CD60065020C /* HFViewController.xib */; };
+		85AB0AFA15988E050065020C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0ACA15988E050065020C /* .gitignore */; };
+		85AB0B0815988E050065020C /* DTGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AE515988E050065020C /* DTGridView.m */; };
+		85AB0B0915988E050065020C /* DTGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AE715988E050065020C /* DTGridViewCell.m */; };
+		85AB0B0A15988E050065020C /* DTGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AEA15988E050065020C /* DTGridViewController.m */; };
+		85AB0B0B15988E050065020C /* DTInfiniteGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AED15988E050065020C /* DTInfiniteGridView.m */; };
+		85AB0B0C15988E050065020C /* DTLabelsSnapGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AF015988E050065020C /* DTLabelsSnapGridViewCell.m */; };
+		85AB0B0D15988E050065020C /* DTSnapGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AF215988E050065020C /* DTSnapGridView.m */; };
+		85AB0B0E15988E050065020C /* DTSnapGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0AF415988E050065020C /* DTSnapGridViewCell.m */; };
+		85AB0B0F15988E050065020C /* Readme.textile in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0AF515988E050065020C /* Readme.textile */; };
+		85AB0B1C15989C470065020C /* ClassCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0B1B15989C470065020C /* ClassCellView.xib */; };
+		85AB0B1F15989F540065020C /* HFClassGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0B1E15989F540065020C /* HFClassGridViewCell.m */; };
+		85F356761599628E000E1B6F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F356751599628E000E1B6F /* libsqlite3.dylib */; };
+		85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */; };
+		85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F35685159994D3000E1B6F /* HFClassEditViewController.m */; };
+		85F35688159994D4000E1B6F /* HFClassEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85F35686159994D3000E1B6F /* HFClassEditView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +37,41 @@
 		85AB0AAC15988CD60065020C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		85AB0AAE15988CD60065020C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		85AB0AB015988CD60065020C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		85AB0AB415988CD60065020C /* ClassNote-Info.plist */ = {isa = PBXFileReference; path = "ClassNote-Info.plist"; sourceTree = "<group>"; };
+		85AB0AB415988CD60065020C /* ClassNote-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClassNote-Info.plist"; sourceTree = "<group>"; };
 		85AB0AB615988CD60065020C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		85AB0AB815988CD60065020C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		85AB0ABA15988CD60065020C /* ClassNote-Prefix.pch */ = {isa = PBXFileReference; path = "ClassNote-Prefix.pch"; sourceTree = "<group>"; };
-		85AB0ABB15988CD60065020C /* HFAppDelegate.h */ = {isa = PBXFileReference; path = HFAppDelegate.h; sourceTree = "<group>"; };
+		85AB0ABA15988CD60065020C /* ClassNote-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClassNote-Prefix.pch"; sourceTree = "<group>"; };
+		85AB0ABB15988CD60065020C /* HFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFAppDelegate.h; sourceTree = "<group>"; };
 		85AB0ABC15988CD60065020C /* HFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFAppDelegate.m; sourceTree = "<group>"; };
-		85AB0ABE15988CD60065020C /* HFViewController.h */ = {isa = PBXFileReference; path = HFViewController.h; sourceTree = "<group>"; };
+		85AB0ABE15988CD60065020C /* HFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFViewController.h; sourceTree = "<group>"; };
 		85AB0ABF15988CD60065020C /* HFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFViewController.m; sourceTree = "<group>"; };
 		85AB0AC215988CD60065020C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HFViewController.xib; sourceTree = "<group>"; };
+		85AB0ACA15988E050065020C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		85AB0AE415988E050065020C /* DTGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGridView.h; sourceTree = "<group>"; };
+		85AB0AE515988E050065020C /* DTGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridView.m; sourceTree = "<group>"; };
+		85AB0AE615988E050065020C /* DTGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGridViewCell.h; sourceTree = "<group>"; };
+		85AB0AE715988E050065020C /* DTGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridViewCell.m; sourceTree = "<group>"; };
+		85AB0AE815988E050065020C /* DTGridViewCellInfoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGridViewCellInfoProtocol.h; sourceTree = "<group>"; };
+		85AB0AE915988E050065020C /* DTGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGridViewController.h; sourceTree = "<group>"; };
+		85AB0AEA15988E050065020C /* DTGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridViewController.m; sourceTree = "<group>"; };
+		85AB0AEC15988E050065020C /* DTInfiniteGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTInfiniteGridView.h; sourceTree = "<group>"; };
+		85AB0AED15988E050065020C /* DTInfiniteGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTInfiniteGridView.m; sourceTree = "<group>"; };
+		85AB0AEF15988E050065020C /* DTLabelsSnapGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLabelsSnapGridViewCell.h; sourceTree = "<group>"; };
+		85AB0AF015988E050065020C /* DTLabelsSnapGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLabelsSnapGridViewCell.m; sourceTree = "<group>"; };
+		85AB0AF115988E050065020C /* DTSnapGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTSnapGridView.h; sourceTree = "<group>"; };
+		85AB0AF215988E050065020C /* DTSnapGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTSnapGridView.m; sourceTree = "<group>"; };
+		85AB0AF315988E050065020C /* DTSnapGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTSnapGridViewCell.h; sourceTree = "<group>"; };
+		85AB0AF415988E050065020C /* DTSnapGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTSnapGridViewCell.m; sourceTree = "<group>"; };
+		85AB0AF515988E050065020C /* Readme.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.textile; sourceTree = "<group>"; };
+		85AB0B1B15989C470065020C /* ClassCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCellView.xib; sourceTree = "<group>"; };
+		85AB0B1D15989F540065020C /* HFClassGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassGridViewCell.h; sourceTree = "<group>"; };
+		85AB0B1E15989F540065020C /* HFClassGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassGridViewCell.m; sourceTree = "<group>"; };
+		85F356751599628E000E1B6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTGridViewAppDelegate.h; sourceTree = "<group>"; };
+		85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridViewAppDelegate.m; sourceTree = "<group>"; };
+		85F35684159994D3000E1B6F /* HFClassEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassEditViewController.h; sourceTree = "<group>"; };
+		85F35685159994D3000E1B6F /* HFClassEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassEditViewController.m; sourceTree = "<group>"; };
+		85F35686159994D3000E1B6F /* HFClassEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFClassEditView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F356761599628E000E1B6F /* libsqlite3.dylib in Frameworks */,
 				85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */,
 				85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */,
 				85AB0AB115988CD60065020C /* CoreGraphics.framework in Frameworks */,
@@ -50,6 +92,8 @@
 		85AB0A9D15988CD50065020C = {
 			isa = PBXGroup;
 			children = (
+				85F356751599628E000E1B6F /* libsqlite3.dylib */,
+				85AB0AC915988E050065020C /* DTGridView */,
 				85AB0AB215988CD60065020C /* ClassNote */,
 				85AB0AAB15988CD60065020C /* Frameworks */,
 				85AB0AA915988CD60065020C /* Products */,
@@ -77,9 +121,17 @@
 		85AB0AB215988CD60065020C /* ClassNote */ = {
 			isa = PBXGroup;
 			children = (
+				85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */,
+				85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */,
 				85AB0ABB15988CD60065020C /* HFAppDelegate.h */,
+				85AB0B1D15989F540065020C /* HFClassGridViewCell.h */,
+				85AB0B1E15989F540065020C /* HFClassGridViewCell.m */,
 				85AB0ABC15988CD60065020C /* HFAppDelegate.m */,
 				85AB0ABE15988CD60065020C /* HFViewController.h */,
+				85F35684159994D3000E1B6F /* HFClassEditViewController.h */,
+				85F35685159994D3000E1B6F /* HFClassEditViewController.m */,
+				85F35686159994D3000E1B6F /* HFClassEditView.xib */,
+				85AB0B1B15989C470065020C /* ClassCellView.xib */,
 				85AB0ABF15988CD60065020C /* HFViewController.m */,
 				85AB0AC115988CD60065020C /* HFViewController.xib */,
 				85AB0AB315988CD60065020C /* Supporting Files */,
@@ -96,6 +148,46 @@
 				85AB0ABA15988CD60065020C /* ClassNote-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85AB0AC915988E050065020C /* DTGridView */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0ACA15988E050065020C /* .gitignore */,
+				85AB0AE415988E050065020C /* DTGridView.h */,
+				85AB0AE515988E050065020C /* DTGridView.m */,
+				85AB0AE615988E050065020C /* DTGridViewCell.h */,
+				85AB0AE715988E050065020C /* DTGridViewCell.m */,
+				85AB0AE815988E050065020C /* DTGridViewCellInfoProtocol.h */,
+				85AB0AE915988E050065020C /* DTGridViewController.h */,
+				85AB0AEA15988E050065020C /* DTGridViewController.m */,
+				85AB0AEB15988E050065020C /* DTInfiniteGridView */,
+				85AB0AEE15988E050065020C /* DTSnapGridView */,
+				85AB0AF515988E050065020C /* Readme.textile */,
+			);
+			path = DTGridView;
+			sourceTree = "<group>";
+		};
+		85AB0AEB15988E050065020C /* DTInfiniteGridView */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0AEC15988E050065020C /* DTInfiniteGridView.h */,
+				85AB0AED15988E050065020C /* DTInfiniteGridView.m */,
+			);
+			path = DTInfiniteGridView;
+			sourceTree = "<group>";
+		};
+		85AB0AEE15988E050065020C /* DTSnapGridView */ = {
+			isa = PBXGroup;
+			children = (
+				85AB0AEF15988E050065020C /* DTLabelsSnapGridViewCell.h */,
+				85AB0AF015988E050065020C /* DTLabelsSnapGridViewCell.m */,
+				85AB0AF115988E050065020C /* DTSnapGridView.h */,
+				85AB0AF215988E050065020C /* DTSnapGridView.m */,
+				85AB0AF315988E050065020C /* DTSnapGridViewCell.h */,
+				85AB0AF415988E050065020C /* DTSnapGridViewCell.m */,
+			);
+			path = DTSnapGridView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +244,10 @@
 			files = (
 				85AB0AB715988CD60065020C /* InfoPlist.strings in Resources */,
 				85AB0AC315988CD60065020C /* HFViewController.xib in Resources */,
+				85AB0AFA15988E050065020C /* .gitignore in Resources */,
+				85AB0B0F15988E050065020C /* Readme.textile in Resources */,
+				85AB0B1C15989C470065020C /* ClassCellView.xib in Resources */,
+				85F35688159994D4000E1B6F /* HFClassEditView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +261,16 @@
 				85AB0AB915988CD60065020C /* main.m in Sources */,
 				85AB0ABD15988CD60065020C /* HFAppDelegate.m in Sources */,
 				85AB0AC015988CD60065020C /* HFViewController.m in Sources */,
+				85AB0B0815988E050065020C /* DTGridView.m in Sources */,
+				85AB0B0915988E050065020C /* DTGridViewCell.m in Sources */,
+				85AB0B0A15988E050065020C /* DTGridViewController.m in Sources */,
+				85AB0B0B15988E050065020C /* DTInfiniteGridView.m in Sources */,
+				85AB0B0C15988E050065020C /* DTLabelsSnapGridViewCell.m in Sources */,
+				85AB0B0D15988E050065020C /* DTSnapGridView.m in Sources */,
+				85AB0B0E15988E050065020C /* DTSnapGridViewCell.m in Sources */,
+				85AB0B1F15989F540065020C /* HFClassGridViewCell.m in Sources */,
+				85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */,
+				85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +380,7 @@
 				85AB0AC815988CD60065020C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
