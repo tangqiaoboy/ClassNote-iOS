@@ -35,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    lessonText.delegate = self;
+    classRoomText.delegate = self;
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(done)] autorelease];
     
@@ -166,5 +168,16 @@
     } else if (component == 2) {
         end = (row + 1);
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if (theTextField == self.lessonText) {
+        [theTextField resignFirstResponder];
+        return NO;
+    } else if (theTextField == self.classRoomText) {
+        [theTextField resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 @end

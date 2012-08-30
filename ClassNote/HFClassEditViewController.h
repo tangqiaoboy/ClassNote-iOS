@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HFClassEditViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
+@interface HFClassEditViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
 
     NSArray * daysInWeek;
     NSInteger dayInWeek;
