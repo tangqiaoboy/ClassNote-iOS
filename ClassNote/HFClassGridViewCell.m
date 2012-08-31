@@ -28,7 +28,20 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-	
+    // draw the black border
+    CGContextRef contextRef = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(contextRef, 1);
+    CGContextSetRGBStrokeColor(contextRef, 0.0, 0.0, 0.0, 1.0);
+    CGContextStrokeRect(contextRef, rect);
+    
+    if (self.selected) {
+        self.backgroundColor = [UIColor redColor];
+    }
+    
+    if (self.highlighted) {
+        self.backgroundColor= [UIColor greenColor];
+    }
+    
 	NSInteger halfHeight = (NSInteger)(self.frame.size.height/2.0);
     NSInteger halfWidth = (NSInteger)(self.frame.size.width/2.0);
 	
@@ -49,5 +62,22 @@
 	return [NSString stringWithFormat:@"<%@ title:%@ frame=(%i %i; %i %i)>", [self class], self.titleLabel.text, (NSInteger)self.frame.origin.x, (NSInteger)self.frame.origin.y, (NSInteger)self.frame.size.width, (NSInteger)self.frame.size.height];
 }
 
+/////
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // triger to repaint, the color must be different
+    self.backgroundColor = [UIColor redColor];
+	[super touchesBegan:touches withEvent:event];
+    
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	[super touchesCancelled:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	[super touchesEnded:touches withEvent:event];
+}
 
 @end
