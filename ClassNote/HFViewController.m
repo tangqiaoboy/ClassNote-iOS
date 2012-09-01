@@ -24,7 +24,7 @@
  * 笔记界面，录音和拍照功能研究，图片声音存储。
  */
 
-@synthesize databaseFilePath, managedObjectContext, addButton, lessonsArray;
+@synthesize databaseFilePath, managedObjectContext, lessonsArray, fetchedResultsController;
 
 - (id)init {
 	if (![super init])
@@ -57,16 +57,23 @@
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editLesson)] autorelease];
     
     // add button
-    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
                                                               target:self action:@selector(addLesson)];
-    addButton.enabled = NO;
     self.navigationItem.rightBarButtonItem = addButton;
+    [addButton release];
     
     //
     self.title = @"ClassGrid";
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
 	self.gridView.bounces = YES;
+    
+    NSError *error;
+	if (![[self fetchedResultsController] performFetch:&error]) {
+		// Update to handle the error appropriately.
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		exit(-1);  // Fail
+	}
     
     
     //获取数据库文件路径
@@ -114,8 +121,9 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    self.addButton = nil;
     self.lessonsArray = nil;
+    // Release any properties that are loaded in viewDidLoad or can be recreated lazily.
+	self.fetchedResultsController = nil;
 }
 
 - (void)addLesson {
@@ -183,9 +191,9 @@
 
 - (void)dealloc {
     [colours release];
-    [addButton release];
     [lessonsArray release];
     [managedObjectContext release];
+    [fetchedResultsController release];
     [super dealloc];
 }
 
@@ -218,6 +226,7 @@
         cell.backgroundColor = [UIColor blueColor];
         cell.titleLabel.text = [NSString stringWithFormat:@"%d", rowIndex];
     } else {
+//        [self fetchedResultsController] 
         cell.backgroundColor = [UIColor whiteColor];
         cell.titleLabel.text = @"";
     }
@@ -240,6 +249,68 @@
     }
     
     //[self dismissModalViewControllerAnimated:YES];
+}
+
+/**
+ Returns the fetched results controller. Creates and configures the controller if necessary.
+ */
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (fetchedResultsController != nil) {
+        return fetchedResultsController;
+    }
+    
+	// Create and configure a fetch request with the Book entity.
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
+	[fetchRequest setEntity:entity];
+	
+	// Create the sort descriptors array.
+	NSSortDescriptor *authorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dayinweek" ascending:YES];
+	NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"start" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:authorDescriptor, titleDescriptor, nil];
+	[fetchRequest setSortDescriptors:sortDescriptors];
+	
+	// Create and initialize the fetch results controller.
+	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:@"dayinweek" cacheName:@"Root"];
+	self.fetchedResultsController = aFetchedResultsController;
+	fetchedResultsController.delegate = self;
+	
+	// Memory management.
+	[aFetchedResultsController release];
+	[fetchRequest release];
+	[authorDescriptor release];
+	[titleDescriptor release];
+	[sortDescriptors release];
+	
+	return fetchedResultsController;
+}
+
+/**
+ Delegate methods of NSFetchedResultsController to respond to additions, removals and so on.
+ */
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+	// The fetch controller is about to start sending change notifications, so prepare the table view for updates.
+	
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+	
+	
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+	
+	
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+	
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification {

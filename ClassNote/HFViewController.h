@@ -11,23 +11,23 @@
 #import "HFClassEditViewController.h"
 #import "HFClass.h"
 
-@interface HFViewController : DTGridViewController<AddHFClassViewControllerDelegate> {
+@interface HFViewController : DTGridViewController<AddHFClassViewControllerDelegate, NSFetchedResultsControllerDelegate> {
     NSArray *colours;
     
     NSManagedObjectContext *managedObjectContext;
     
-    NSMutableArray * lessonsArray;
+    NSFetchedResultsController *fetchedResultsController;
     
-    UIBarButtonItem *addButton;
+    NSMutableArray * lessonsArray;
 }
 
 @property (copy, nonatomic) NSString *databaseFilePath;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
-@property (nonatomic, retain) NSMutableArray *lessonsArray;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
-@property (nonatomic, retain) UIBarButtonItem *addButton;
+@property (nonatomic, retain) NSMutableArray *lessonsArray;
 
 - (void)addLesson;
 
