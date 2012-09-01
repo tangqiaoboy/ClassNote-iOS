@@ -24,7 +24,7 @@
  * 笔记界面，录音和拍照功能研究，图片声音存储。
  */
 
-@synthesize databaseFilePath, managedObjectContext;
+@synthesize databaseFilePath, managedObjectContext, addButton, lessonsArray;
 
 - (id)init {
 	if (![super init])
@@ -42,6 +42,8 @@
                [UIColor purpleColor],
                [UIColor orangeColor],
                nil];
+    
+    lessonsArray = [NSMutableArray arrayWithCapacity: (7 * 12)];
 	
 	return self;
 }
@@ -49,9 +51,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(edit)] autorelease];
     
+    // edit button
+	// Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editLesson)] autorelease];
+    
+    // add button
+    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                              target:self action:@selector(addLesson)];
+    addButton.enabled = NO;
+    self.navigationItem.rightBarButtonItem = addButton;
+    
+    //
     self.title = @"ClassGrid";
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
@@ -59,37 +70,37 @@
     
     
     //获取数据库文件路径
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    self.databaseFilePath = [documentsDirectory stringByAppendingPathComponent:kDatabaseName];
-    //打开或创建数据库
-    sqlite3 *database;
-    if (sqlite3_open([self.databaseFilePath UTF8String] , &database) != SQLITE_OK) {
-        sqlite3_close(database);
-        NSAssert(0, @"打开数据库失败！");
-    }
-    //创建数据库表
-    NSString *createSQL = @"CREATE TABLE IF NOT EXISTS LESSON (ID integer primary key autoincrement, NAME TEXT, TEACHER TEXT, BOOK TEXT);";
-    char *errorMsg;
-    if (sqlite3_exec(database, [createSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
-        sqlite3_close(database);
-        NSAssert(0, @"创建数据库表错误: %s", errorMsg);
-    }
-    //创建数据库表
-    createSQL = @"CREATE TABLE IF NOT EXISTS CLASS (ID integer primary key autoincrement, LESSON_ID integer, ROOM text, DAYINWEEK integer, START integer, END integer);";
-    if (sqlite3_exec(database, [createSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
-        sqlite3_close(database);
-        NSAssert(0, @"创建数据库表错误: %s", errorMsg);
-    }
-    //创建数据库表
-    createSQL = @"CREATE TABLE IF NOT EXISTS TEXTNOTE (ID integer primary key autoincrement, CLASS_ID integer, NOTE TEXT, TIME timestamp);";
-    if (sqlite3_exec(database, [createSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
-        sqlite3_close(database);
-        NSAssert(0, @"创建数据库表错误: %s", errorMsg);
-    }
-        
-    //关闭数据库
-    sqlite3_close(database);
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    self.databaseFilePath = [documentsDirectory stringByAppendingPathComponent:kDatabaseName];
+//    //打开或创建数据库
+//    sqlite3 *database;
+//    if (sqlite3_open([self.databaseFilePath UTF8String] , &database) != SQLITE_OK) {
+//        sqlite3_close(database);
+//        NSAssert(0, @"打开数据库失败！");
+//    }
+//    //创建数据库表
+//    NSString *createSQL = @"CREATE TABLE IF NOT EXISTS LESSON (ID integer primary key autoincrement, NAME TEXT, TEACHER TEXT, BOOK TEXT);";
+//    char *errorMsg;
+//    if (sqlite3_exec(database, [createSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
+//        sqlite3_close(database);
+//        NSAssert(0, @"创建数据库表错误: %s", errorMsg);
+//    }
+//    //创建数据库表
+//    createSQL = @"CREATE TABLE IF NOT EXISTS CLASS (ID integer primary key autoincrement, LESSON_ID integer, ROOM text, DAYINWEEK integer, START integer, END integer);";
+//    if (sqlite3_exec(database, [createSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
+//        sqlite3_close(database);
+//        NSAssert(0, @"创建数据库表错误: %s", errorMsg);
+//    }
+//    //创建数据库表
+//    createSQL = @"CREATE TABLE IF NOT EXISTS TEXTNOTE (ID integer primary key autoincrement, CLASS_ID integer, NOTE TEXT, TIME timestamp);";
+//    if (sqlite3_exec(database, [createSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK) {
+//        sqlite3_close(database);
+//        NSAssert(0, @"创建数据库表错误: %s", errorMsg);
+//    }
+//        
+//    //关闭数据库
+//    sqlite3_close(database);
     //当程序进入后台时执行写入数据库操作
     UIApplication *app = [UIApplication sharedApplication];
     [[NSNotificationCenter defaultCenter]
@@ -103,39 +114,65 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    self.addButton = nil;
+    self.lessonsArray = nil;
 }
 
-- (void)edit {
+- (void)addLesson {
+    // Create and configure a new instance of the Event entity.
+    HFClass *hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
+    
+    [hfClass setLesson_id:[NSNumber numberWithInt:1]];
+    [hfClass setStart:[NSNumber numberWithInt:1]];
+    [hfClass setEnd:[NSNumber numberWithInt:3]];
+    [hfClass setDayinweek:[NSNumber numberWithInt:4]];
+    
+    NSError *error = nil;
+    if (![managedObjectContext save:&error]) {
+        // TODO: handle the erroe
+        NSLog(@"Save failed.%@", @"Nothing");
+    }
+}
+
+- (void)editLesson {
     HFClassEditViewController *vc = [[HFClassEditViewController alloc] initWithNibName:@"HFClassEditView" bundle:nil];
+    vc.delegate = self;
+//    
+//    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
+//	self.addingManagedObjectContext = addingContext;
+//	[addingContext release];
+    
+    vc.hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
+    
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
     
-    //打开或创建数据库
-    sqlite3 *database;
-    if (sqlite3_open([self.databaseFilePath UTF8String] , &database) != SQLITE_OK) {
-        sqlite3_close(database);
-        NSAssert(0, @"打开数据库失败！");
-    }
-    
-    //执行查询
-    NSString *query = @"SELECT ID, NAME, TEACHER, BOOK FROM LESSON ORDER BY ID";
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
-        //依次读取数据库表格LESSONS中每行的内容，并显示在对应的TextField
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            //获得数据
-            int id = sqlite3_column_int(statement, 0);
-            char *name = (char *)sqlite3_column_text(statement, 1);
-            char *teacher = (char *)sqlite3_column_text(statement, 2);
-            char *book = (char *)sqlite3_column_text(statement, 3);
-            
-            NSLog(@"The id is %d, name is %@, teacher is %@, book is %@", id, [[NSString alloc] initWithUTF8String:name], [[NSString alloc] initWithUTF8String:teacher], [[NSString alloc] initWithUTF8String:book]);
-        }
-        sqlite3_finalize(statement);
-    }
-
-    //关闭数据库
-    sqlite3_close(database);
+//    //打开或创建数据库
+//    sqlite3 *database;
+//    if (sqlite3_open([self.databaseFilePath UTF8String] , &database) != SQLITE_OK) {
+//        sqlite3_close(database);
+//        NSAssert(0, @"打开数据库失败！");
+//    }
+//    
+//    //执行查询
+//    NSString *query = @"SELECT ID, NAME, TEACHER, BOOK FROM LESSON ORDER BY ID";
+//    sqlite3_stmt *statement;
+//    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+//        //依次读取数据库表格LESSONS中每行的内容，并显示在对应的TextField
+//        while (sqlite3_step(statement) == SQLITE_ROW) {
+//            //获得数据
+//            int id = sqlite3_column_int(statement, 0);
+//            char *name = (char *)sqlite3_column_text(statement, 1);
+//            char *teacher = (char *)sqlite3_column_text(statement, 2);
+//            char *book = (char *)sqlite3_column_text(statement, 3);
+//            
+//            NSLog(@"The id is %d, name is %@, teacher is %@, book is %@", id, [[NSString alloc] initWithUTF8String:name], [[NSString alloc] initWithUTF8String:teacher], [[NSString alloc] initWithUTF8String:book]);
+//        }
+//        sqlite3_finalize(statement);
+//    }
+//
+//    //关闭数据库
+//    sqlite3_close(database);
 }
 
 // 强制横屏
@@ -146,6 +183,9 @@
 
 - (void)dealloc {
     [colours release];
+    [addButton release];
+    [lessonsArray release];
+    [managedObjectContext release];
     [super dealloc];
 }
 
@@ -184,6 +224,22 @@
 	
 	
 	return cell;
+}
+
+- (void)addViewController:(HFClassEditViewController *)controller didFinishWithSave:(BOOL)save {
+	
+	if (save) {
+        // do save
+        // Create and configure a new instance of the Event entity.
+        NSError *error;
+		if (![managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+		}
+    }
+    
+    //[self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification {

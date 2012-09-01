@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HFClass.h"
+
+@protocol AddHFClassViewControllerDelegate;
 
 @interface HFClassEditViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>{
+    HFClass *hfClass;
+    id <AddHFClassViewControllerDelegate> delegate;
 
     NSArray * daysInWeek;
     NSInteger dayInWeek;
     NSInteger start;
     NSInteger end;
 }
+@property (nonatomic, retain) HFClass *hfClass;
+
 @property (retain, nonatomic) IBOutlet UITextField *lessonText;
 @property (retain, nonatomic) IBOutlet UITextField *classRoomText;
 
@@ -22,4 +29,13 @@
 
 @property (copy, nonatomic) NSString *databaseFilePath;
 
+@property (nonatomic, assign) id <AddHFClassViewControllerDelegate> delegate;
+
+- (IBAction)cancel:(id)sender;
+- (IBAction)save:(id)sender;
+
+@end
+
+@protocol AddHFClassViewControllerDelegate
+- (void)addViewController:(HFClassEditViewController *)controller didFinishWithSave:(BOOL)save;
 @end

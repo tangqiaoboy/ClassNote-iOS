@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		852EC1BF159C4AA40018A30E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852EC1BE159C4AA40018A30E /* CoreData.framework */; };
 		852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */; };
-		852EC1D2159C50280018A30E /* HFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1D1159C50280018A30E /* HFClass.m */; };
-		852EC1D5159C50410018A30E /* HFLESSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1D4159C50410018A30E /* HFLESSON.m */; };
 		85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAC15988CD60065020C /* UIKit.framework */; };
 		85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAE15988CD60065020C /* Foundation.framework */; };
 		85AB0AB115988CD60065020C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AB015988CD60065020C /* CoreGraphics.framework */; };
@@ -30,6 +28,7 @@
 		85AB0B0F15988E050065020C /* Readme.textile in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0AF515988E050065020C /* Readme.textile */; };
 		85AB0B1C15989C470065020C /* ClassCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0B1B15989C470065020C /* ClassCellView.xib */; };
 		85AB0B1F15989F540065020C /* HFClassGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0B1E15989F540065020C /* HFClassGridViewCell.m */; };
+		85E644CD15F1C0A300AA0FA2 /* HFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E644CC15F1C0A300AA0FA2 /* HFClass.m */; };
 		85F356761599628E000E1B6F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F356751599628E000E1B6F /* libsqlite3.dylib */; };
 		85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */; };
 		85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F35685159994D3000E1B6F /* HFClassEditViewController.m */; };
@@ -39,10 +38,6 @@
 /* Begin PBXFileReference section */
 		852EC1BE159C4AA40018A30E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		852EC1C2159C4AFA0018A30E /* ClassNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassNote.xcdatamodel; sourceTree = "<group>"; };
-		852EC1D0159C50280018A30E /* HFClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClass.h; sourceTree = "<group>"; };
-		852EC1D1159C50280018A30E /* HFClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClass.m; sourceTree = "<group>"; };
-		852EC1D3159C50410018A30E /* HFLESSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLESSON.h; sourceTree = "<group>"; };
-		852EC1D4159C50410018A30E /* HFLESSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLESSON.m; sourceTree = "<group>"; };
 		85AB0AA815988CD60065020C /* ClassNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AB0AAC15988CD60065020C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		85AB0AAE15988CD60065020C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +71,8 @@
 		85AB0B1B15989C470065020C /* ClassCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCellView.xib; sourceTree = "<group>"; };
 		85AB0B1D15989F540065020C /* HFClassGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassGridViewCell.h; sourceTree = "<group>"; };
 		85AB0B1E15989F540065020C /* HFClassGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassGridViewCell.m; sourceTree = "<group>"; };
+		85E644CB15F1C0A300AA0FA2 /* HFClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClass.h; sourceTree = "<group>"; };
+		85E644CC15F1C0A300AA0FA2 /* HFClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClass.m; sourceTree = "<group>"; };
 		85F356751599628E000E1B6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTGridViewAppDelegate.h; sourceTree = "<group>"; };
 		85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridViewAppDelegate.m; sourceTree = "<group>"; };
@@ -147,6 +144,8 @@
 		85AB0AB215988CD60065020C /* ClassNote */ = {
 			isa = PBXGroup;
 			children = (
+				85E644CB15F1C0A300AA0FA2 /* HFClass.h */,
+				85E644CC15F1C0A300AA0FA2 /* HFClass.m */,
 				85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */,
 				85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */,
 				85AB0ABB15988CD60065020C /* HFAppDelegate.h */,
@@ -156,10 +155,6 @@
 				85AB0B1B15989C470065020C /* ClassCellView.xib */,
 				85AB0AB315988CD60065020C /* Supporting Files */,
 				852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */,
-				852EC1D0159C50280018A30E /* HFClass.h */,
-				852EC1D1159C50280018A30E /* HFClass.m */,
-				852EC1D3159C50410018A30E /* HFLESSON.h */,
-				852EC1D4159C50410018A30E /* HFLESSON.m */,
 			);
 			path = ClassNote;
 			sourceTree = "<group>";
@@ -297,8 +292,7 @@
 				85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */,
 				85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */,
 				852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */,
-				852EC1D2159C50280018A30E /* HFClass.m in Sources */,
-				852EC1D5159C50410018A30E /* HFLESSON.m in Sources */,
+				85E644CD15F1C0A300AA0FA2 /* HFClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

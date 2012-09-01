@@ -2,7 +2,7 @@
 //  HFClass.m
 //  ClassNote
 //
-//  Created by XiaoYin Wang on 12-6-28.
+//  Created by XiaoYin Wang on 12-9-1.
 //  Copyright (c) 2012年 HackFisher. All rights reserved.
 //
 

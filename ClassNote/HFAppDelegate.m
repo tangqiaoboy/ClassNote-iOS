@@ -31,8 +31,15 @@
     //self.viewController = [[[HFViewController alloc] initWithNibName:@"HFViewController" bundle:nil] autorelease];
     
     HFViewController *vc = [[HFViewController alloc] init];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    if (!context) {
+        NSLog(@"ManagedObjectContext created failed. %@", "Nothing");
+    }
+    
+    vc.managedObjectContext = context;
+    
     navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    vc.managedObjectContext = self.managedObjectContext;
     
     [vc release];
     

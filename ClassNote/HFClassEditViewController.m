@@ -20,6 +20,8 @@
 @synthesize classRoomText;
 @synthesize dayInWeekPickerView;
 @synthesize databaseFilePath;
+@synthesize delegate;
+@synthesize hfClass;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,10 +37,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"New Lesson";
+    
     lessonText.delegate = self;
     classRoomText.delegate = self;
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(done)] autorelease];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 
+                                                                                           target:self action:@selector(cancel:)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
+                                                                                            target:self action:@selector(save:)] autorelease];
     
     daysInWeek = [[NSArray alloc] initWithObjects:@"Sun.", @"Mon.",@"Tues.",@"Wed.",@"Thur.", @"Fri.", @"Sat.", nil];
     
@@ -67,51 +74,69 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)done {
+- (IBAction)cancel:(id)sender {
+	[delegate addViewController:self didFinishWithSave:NO];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)save:(id)sender {
+    [hfClass setLesson_id:[NSNumber numberWithInt:1]];
+    [hfClass setStart:[NSNumber numberWithInteger:start]];
+    [hfClass setEnd:[NSNumber numberWithInteger:end]];
+    [hfClass setDayinweek:[NSNumber numberWithInteger:dayInWeek]];
+    [hfClass setRoom:classRoomText.text];
+    
+    
+    ////////////TO be deleted
     //打开或创建数据库
-    sqlite3 *database;
-    if (sqlite3_open([self.databaseFilePath UTF8String] , &database) != SQLITE_OK) {
-        sqlite3_close(database);
-        NSAssert(0, @"打开数据库失败！");
-    }
+//    sqlite3 *database;
+//    if (sqlite3_open([self.databaseFilePath UTF8String] , &database) != SQLITE_OK) {
+//        sqlite3_close(database);
+//        NSAssert(0, @"打开数据库失败！");
+//    }
     
-    char *update = "INSERT OR REPLACE INTO CLASS (LESSON_ID, ROOM, DAYINWEEK, START, END) VALUES (?, ?, ?, ?, ?);";
-    sqlite3_stmt *stmt;
+//    char *update = "INSERT OR REPLACE INTO CLASS (LESSON_ID, ROOM, DAYINWEEK, START, END) VALUES (?, ?, ?, ?, ?);";
+//    sqlite3_stmt *stmt;
+//    
+//    int lesson_id = 1;
+//    if (sqlite3_prepare_v2(database, update, -1, &stmt, nil) == SQLITE_OK) {
+//        sqlite3_bind_int(stmt, 1, lesson_id);
+//        sqlite3_bind_text(stmt, 2, [classRoomText.text UTF8String], -1, NULL);
+//        sqlite3_bind_int(stmt, 3, dayInWeek);
+//        sqlite3_bind_int(stmt, 4, start);
+//        sqlite3_bind_int(stmt, 5, end);
+//    }
+//    char *errorMsg = NULL;
+//    if (sqlite3_step(stmt) != SQLITE_DONE)
+//        NSAssert(0, @"更新数据库表CLASS出错: %s", errorMsg);
+//    sqlite3_finalize(stmt);
+//    
+//    // 编辑完成，退回到主界面
+//    [self.navigationController popViewControllerAnimated:TRUE];
+//    
+//    //执行查询
+//    NSString *query = @"SELECT ID, LESSON_ID, ROOM, DAYINWEEK, START, END FROM CLASS ORDER BY ID";
+//    sqlite3_stmt *statement;
+//    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+//        //依次读取数据库表格LESSONS中每行的内容，并显示在对应的TextField
+//        while (sqlite3_step(statement) == SQLITE_ROW) {
+//            //获得数据
+//            int id = sqlite3_column_int(statement, 0);
+//            int lesson_id = sqlite3_column_int(statement, 1);
+//            char *room = (char *)sqlite3_column_text(statement, 2);
+//            
+//            NSLog(@"The id is %d, lesson_id is %d, room is %@", id, lesson_id, [[NSString alloc] initWithUTF8String:room]);
+//        }
+//        sqlite3_finalize(statement);
+//    }
+//    
+//    //关闭数据库
+//    sqlite3_close(database);
+    ///////////////////////////
     
-    int lesson_id = 1;
-    if (sqlite3_prepare_v2(database, update, -1, &stmt, nil) == SQLITE_OK) {
-        sqlite3_bind_int(stmt, 1, lesson_id);
-        sqlite3_bind_text(stmt, 2, [classRoomText.text UTF8String], -1, NULL);
-        sqlite3_bind_int(stmt, 3, dayInWeek);
-        sqlite3_bind_int(stmt, 4, start);
-        sqlite3_bind_int(stmt, 5, end);
-    }
-    char *errorMsg = NULL;
-    if (sqlite3_step(stmt) != SQLITE_DONE)
-        NSAssert(0, @"更新数据库表CLASS出错: %s", errorMsg);
-    sqlite3_finalize(stmt);
+	[delegate addViewController:self didFinishWithSave:YES];
     
-    // 编辑完成，退回到主界面
-    [self.navigationController popViewControllerAnimated:TRUE];
-    
-    //执行查询
-    NSString *query = @"SELECT ID, LESSON_ID, ROOM, DAYINWEEK, START, END FROM CLASS ORDER BY ID";
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
-        //依次读取数据库表格LESSONS中每行的内容，并显示在对应的TextField
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            //获得数据
-            int id = sqlite3_column_int(statement, 0);
-            int lesson_id = sqlite3_column_int(statement, 1);
-            char *room = (char *)sqlite3_column_text(statement, 2);
-            
-            NSLog(@"The id is %d, lesson_id is %d, room is %@", id, lesson_id, [[NSString alloc] initWithUTF8String:room]);
-        }
-        sqlite3_finalize(statement);
-    }
-    
-    //关闭数据库
-    sqlite3_close(database);
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
