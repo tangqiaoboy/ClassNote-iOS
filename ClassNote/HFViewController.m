@@ -172,7 +172,7 @@
         cell.backgroundColor = [UIColor whiteColor];
         cell.titleLabel.text = @"";
     } else if (rowIndex == 0) {
-        cell.backgroundColor = [UIColor blackColor];
+        cell.backgroundColor = [UIColor yellowColor];
         cell.titleLabel.text = [NSString stringWithFormat:@"星期%d", columnIndex];
     } else if (columnIndex == 0) {
         cell.backgroundColor = [UIColor blueColor];

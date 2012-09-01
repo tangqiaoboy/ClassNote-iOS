@@ -31,11 +31,11 @@
     // draw the black border
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(contextRef, 1);
-    CGContextSetRGBStrokeColor(contextRef, 0.0, 0.0, 0.0, 1.0);
+    CGContextSetRGBStrokeColor(contextRef, 0.5, 0.5, 0.5, 1.0);
     CGContextStrokeRect(contextRef, rect);
     
     if (self.selected) {
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor yellowColor];
     }
     
     if (self.highlighted) {
@@ -47,6 +47,7 @@
 	
 	CGSize labelSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font];
 	self.titleLabel.frame = CGRectMake(halfWidth - labelSize.width/2.0, halfHeight-labelSize.height/2.0, labelSize.width, labelSize.height);
+    self.titleLabel.backgroundColor = [UIColor clearColor];
 	
 	[self addSubview:self.titleLabel];
 	
