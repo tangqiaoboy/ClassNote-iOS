@@ -75,6 +75,16 @@
 		exit(-1);  // Fail
 	}
     
+    NSArray *fetchedObjects = fetchedResultsController.fetchedObjects;
+    
+    //http://www.raywenderlich.com/934/core-data-on-ios-5-tutorial-getting-started
+    for (HFClass *class in fetchedObjects) {
+        NSLog(@"Room: %@", class.room);
+        NSLog(@"DayInWeek: %@", class.dayinweek);
+        NSLog(@"Start: %@", class.start);
+        NSLog(@"LessionId: %@", class.lesson_id);
+    }
+    
     
     //获取数据库文件路径
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -266,9 +276,9 @@
 	[fetchRequest setEntity:entity];
 	
 	// Create the sort descriptors array.
-	NSSortDescriptor *authorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dayinweek" ascending:YES];
-	NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"start" ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:authorDescriptor, titleDescriptor, nil];
+	NSSortDescriptor *dayinweekDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dayinweek" ascending:YES];
+	NSSortDescriptor *startDescriptor = [[NSSortDescriptor alloc] initWithKey:@"start" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:dayinweekDescriptor, startDescriptor, nil];
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
 	// Create and initialize the fetch results controller.
@@ -279,8 +289,8 @@
 	// Memory management.
 	[aFetchedResultsController release];
 	[fetchRequest release];
-	[authorDescriptor release];
-	[titleDescriptor release];
+	[dayinweekDescriptor release];
+	[startDescriptor release];
 	[sortDescriptors release];
 	
 	return fetchedResultsController;
