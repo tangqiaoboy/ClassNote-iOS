@@ -24,7 +24,7 @@
  * 笔记界面，录音和拍照功能研究，图片声音存储。
  */
 
-@synthesize databaseFilePath, managedObjectContext, lessonsArray, fetchedResultsController;
+@synthesize databaseFilePath, managedObjectContext, lessonsDictionary, fetchedResultsController;
 
 - (id)init {
 	if (![super init])
@@ -43,7 +43,7 @@
                [UIColor orangeColor],
                nil];
     
-    lessonsArray = [NSMutableArray arrayWithCapacity: (7 * 12)];
+    lessonsDictionary = [NSMutableDictionary dictionaryWithCapacity:(7*12)];
 	
 	return self;
 }
@@ -79,6 +79,10 @@
     
     //http://www.raywenderlich.com/934/core-data-on-ios-5-tutorial-getting-started
     for (HFClass *class in fetchedObjects) {
+        NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * 7 + [class.start intValue]];
+        if (! [lessonsDictionary objectForKey:key]) {
+            [lessonsDictionary setObject:class forKey:key];
+        }
         NSLog(@"Room: %@", class.room);
         NSLog(@"DayInWeek: %@", class.dayinweek);
         NSLog(@"Start: %@", class.start);
@@ -131,7 +135,7 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    self.lessonsArray = nil;
+    self.lessonsDictionary = nil;
     // Release any properties that are loaded in viewDidLoad or can be recreated lazily.
 	self.fetchedResultsController = nil;
 }
@@ -201,7 +205,7 @@
 
 - (void)dealloc {
     [colours release];
-    [lessonsArray release];
+    [lessonsDictionary release];
     [managedObjectContext release];
     [fetchedResultsController release];
     [super dealloc];
@@ -238,7 +242,13 @@
     } else {
 //        [self fetchedResultsController] 
         cell.backgroundColor = [UIColor whiteColor];
-        cell.titleLabel.text = @"";
+        NSNumber * key = [NSNumber numberWithInt:(columnIndex-1) * 7 + rowIndex - 1];
+        HFClass * class = [lessonsDictionary objectForKey:key];
+        if (class) {
+            cell.titleLabel.text = [class.lesson_id description];
+        } else {
+            cell.titleLabel.text = @"";
+        }
     }
 	
 	

@@ -13,7 +13,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "217"
          endingLineNumber = "217"
-         landmarkName = "-gridView:heightForRow:"
+         landmarkName = "-numberOfColumnsInGridView:forRowWithIndex:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -169,7 +169,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "223"
          endingLineNumber = "223"
-         landmarkName = "-gridView:viewForRow:column:"
+         landmarkName = "-gridView:widthForCellAtRow:column:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -255,11 +255,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ClassNote/HFViewController.m"
-         timestampString = "368180227.040158"
+         timestampString = "368353321.224934"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "253"
-         endingLineNumber = "253"
+         startingLineNumber = "259"
+         endingLineNumber = "259"
          landmarkName = "-addViewController:didFinishWithSave:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -273,6 +273,45 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "74"
          endingLineNumber = "74"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ClassNote/HFViewController.m"
+         timestampString = "368353400.986845"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "248"
+         endingLineNumber = "248"
+         landmarkName = "-gridView:viewForRow:column:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ClassNote/HFViewController.m"
+         timestampString = "368353437.36273"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "245"
+         endingLineNumber = "245"
+         landmarkName = "-gridView:viewForRow:column:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ClassNote/HFViewController.m"
+         timestampString = "368353450.542965"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>

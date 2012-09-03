@@ -18,7 +18,7 @@
     
     NSFetchedResultsController *fetchedResultsController;
     
-    NSMutableArray * lessonsArray;
+    NSMutableDictionary * lessonsDictionary;
 }
 
 @property (copy, nonatomic) NSString *databaseFilePath;
@@ -27,7 +27,7 @@
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
-@property (nonatomic, retain) NSMutableArray *lessonsArray;
+@property (nonatomic, retain) NSMutableDictionary *lessonsDictionary;
 
 - (void)addLesson;
 
