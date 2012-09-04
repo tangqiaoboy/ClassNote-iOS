@@ -29,7 +29,8 @@
 		85AB0B1C15989C470065020C /* ClassCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0B1B15989C470065020C /* ClassCellView.xib */; };
 		85AB0B1F15989F540065020C /* HFClassGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0B1E15989F540065020C /* HFClassGridViewCell.m */; };
 		85E035D615F64FE70009FAB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85E035D815F64FE70009FAB8 /* Localizable.strings */; };
-		85E644CD15F1C0A300AA0FA2 /* HFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E644CC15F1C0A300AA0FA2 /* HFClass.m */; };
+		85E035E615F65EF70009FAB8 /* HFLesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E035E515F65EF70009FAB8 /* HFLesson.m */; };
+		85E035E915F65F090009FAB8 /* HFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E035E815F65F090009FAB8 /* HFClass.m */; };
 		85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */; };
 		85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F35685159994D3000E1B6F /* HFClassEditViewController.m */; };
 		85F35688159994D4000E1B6F /* HFClassEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85F35686159994D3000E1B6F /* HFClassEditView.xib */; };
@@ -73,8 +74,10 @@
 		85AB0B1E15989F540065020C /* HFClassGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassGridViewCell.m; sourceTree = "<group>"; };
 		85E035D715F64FE70009FAB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		85E035DA15F650180009FAB8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		85E644CB15F1C0A300AA0FA2 /* HFClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClass.h; sourceTree = "<group>"; };
-		85E644CC15F1C0A300AA0FA2 /* HFClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClass.m; sourceTree = "<group>"; };
+		85E035E415F65EF70009FAB8 /* HFLesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLesson.h; sourceTree = "<group>"; };
+		85E035E515F65EF70009FAB8 /* HFLesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLesson.m; sourceTree = "<group>"; };
+		85E035E715F65F090009FAB8 /* HFClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClass.h; sourceTree = "<group>"; };
+		85E035E815F65F090009FAB8 /* HFClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClass.m; sourceTree = "<group>"; };
 		85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTGridViewAppDelegate.h; sourceTree = "<group>"; };
 		85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridViewAppDelegate.m; sourceTree = "<group>"; };
 		85F35684159994D3000E1B6F /* HFClassEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFClassEditViewController.h; path = ClassNote/HFClassEditViewController.h; sourceTree = "<group>"; };
@@ -143,8 +146,6 @@
 		85AB0AB215988CD60065020C /* ClassNote */ = {
 			isa = PBXGroup;
 			children = (
-				85E644CB15F1C0A300AA0FA2 /* HFClass.h */,
-				85E644CC15F1C0A300AA0FA2 /* HFClass.m */,
 				85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */,
 				85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */,
 				85AB0ABB15988CD60065020C /* HFAppDelegate.h */,
@@ -154,6 +155,10 @@
 				85AB0B1B15989C470065020C /* ClassCellView.xib */,
 				85AB0AB315988CD60065020C /* Supporting Files */,
 				852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */,
+				85E035E715F65F090009FAB8 /* HFClass.h */,
+				85E035E815F65F090009FAB8 /* HFClass.m */,
+				85E035E415F65EF70009FAB8 /* HFLesson.h */,
+				85E035E515F65EF70009FAB8 /* HFLesson.m */,
 			);
 			path = ClassNote;
 			sourceTree = "<group>";
@@ -294,7 +299,8 @@
 				85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */,
 				85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */,
 				852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */,
-				85E644CD15F1C0A300AA0FA2 /* HFClass.m in Sources */,
+				85E035E615F65EF70009FAB8 /* HFLesson.m in Sources */,
+				85E035E915F65F090009FAB8 /* HFClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

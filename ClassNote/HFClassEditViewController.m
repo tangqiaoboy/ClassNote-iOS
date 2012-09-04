@@ -78,7 +78,7 @@
 }
 
 - (IBAction)save:(id)sender {
-    [hfClass setLesson_id:[NSNumber numberWithInt:1]];
+    //[hfClass setLesson_id:[NSNumber numberWithInt:1]];
     [hfClass setStart:[NSNumber numberWithInteger:start]];
     [hfClass setEnd:[NSNumber numberWithInteger:end]];
     [hfClass setDayinweek:[NSNumber numberWithInteger:dayInWeek]];

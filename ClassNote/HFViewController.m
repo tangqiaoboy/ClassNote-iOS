@@ -93,7 +93,7 @@
         NSLog(@"Room: %@", class.room);
         NSLog(@"DayInWeek: %@", class.dayinweek);
         NSLog(@"Start: %@", class.start);
-        NSLog(@"LessionId: %@", class.lesson_id);
+        NSLog(@"LessionId: %@", class.lesson);
     }
     
     UIApplication *app = [UIApplication sharedApplication];
@@ -117,7 +117,6 @@
     // Create and configure a new instance of the Event entity.
     HFClass *hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
     
-    [hfClass setLesson_id:[NSNumber numberWithInt:1]];
     [hfClass setStart:[NSNumber numberWithInt:1]];
     [hfClass setEnd:[NSNumber numberWithInt:3]];
     [hfClass setDayinweek:[NSNumber numberWithInt:4]];
@@ -198,7 +197,7 @@
         NSNumber * key = [NSNumber numberWithInt:(columnIndex-1) * 7 + rowIndex - 1];
         HFClass * class = [lessonsDictionary objectForKey:key];
         if (class) {
-            cell.titleLabel.text = [class.lesson_id description];
+            cell.titleLabel.text = [class.lesson description];
         } else {
             cell.titleLabel.text = @"";
         }

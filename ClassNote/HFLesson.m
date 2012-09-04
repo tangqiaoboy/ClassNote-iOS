@@ -1,21 +1,19 @@
 //
-//  HFClass.m
+//  HFLesson.m
 //  ClassNote
 //
 //  Created by XiaoYin Wang on 12-9-5.
 //  Copyright (c) 2012年 HackFisher. All rights reserved.
 //
 
-#import "HFClass.h"
 #import "HFLesson.h"
 
 
-@implementation HFClass
+@implementation HFLesson
 
-@dynamic dayinweek;
-@dynamic end;
-@dynamic room;
-@dynamic start;
-@dynamic lesson;
+@dynamic book;
+@dynamic id;
+@dynamic name;
+@dynamic teacher;
 
 @end
