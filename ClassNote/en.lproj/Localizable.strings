@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  ClassNote
+
+  Copyright (c) 2012年 HackFisher. All rights reserved.
+*/
+"Sunday" = "Sun.";
+"Monday" = "Mon.";
+"Tuesday" = "Tue.";
+"Wednesday" = "Wed.";
+"Thursday" = "Thus.";
+"Friday" = "Fri.";
+"Saturday" = "Sat.";
+"ClassNote" = "ClassNote";
+"Edit" = "Edit";

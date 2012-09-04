@@ -13,6 +13,7 @@
 
 @interface HFViewController : DTGridViewController<AddHFClassViewControllerDelegate, NSFetchedResultsControllerDelegate> {
     NSArray *colours;
+    NSArray *weekdays;
     
     NSManagedObjectContext *managedObjectContext;
     
@@ -20,8 +21,6 @@
     
     NSMutableDictionary * lessonsDictionary;
 }
-
-@property (copy, nonatomic) NSString *databaseFilePath;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 

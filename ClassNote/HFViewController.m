@@ -9,8 +9,6 @@
 #import "HFViewController.h"
 #import "HFClassEditViewController.h"
 #import "HFClassGridViewCell.h"
-#import "sqlite3.h"
-#define kDatabaseName @"classnote.sqlite3"
 
 @interface HFViewController ()
 
@@ -19,12 +17,11 @@
 @implementation HFViewController
 /*
  * TODO: 编辑课程，和Class关联。在课程表上显示Class，完善课程。
- * 将SQLite换成CoreData，不用SQL，简单的数据模型
  * Logo
  * 笔记界面，录音和拍照功能研究，图片声音存储。
  */
 
-@synthesize databaseFilePath, managedObjectContext, lessonsDictionary, fetchedResultsController;
+@synthesize managedObjectContext, lessonsDictionary, fetchedResultsController;
 
 - (id)init {
 	if (![super init])
@@ -43,6 +40,16 @@
                [UIColor orangeColor],
                nil];
     
+    weekdays = [[NSArray alloc] initWithObjects:
+                NSLocalizedString(@"Sunday", @""),
+                NSLocalizedString(@"Monday", @""),
+                NSLocalizedString(@"Tuesday", @""),
+                NSLocalizedString(@"Wednesday", @""),
+                NSLocalizedString(@"Thursday", @""),
+                NSLocalizedString(@"Friday", @""),
+                NSLocalizedString(@"Saturday", @""),
+                nil];
+    
     lessonsDictionary = [NSMutableDictionary dictionaryWithCapacity:(7*12)];
 	
 	return self;
@@ -54,7 +61,7 @@
     
     // edit button
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(editLesson)] autorelease];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(editLesson)] autorelease];
     
     // add button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
@@ -63,7 +70,7 @@
     [addButton release];
     
     //
-    self.title = @"ClassGrid";
+    self.title = NSLocalizedString(@"ClassNote", @"");
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
 	self.gridView.bounces = YES;
@@ -178,7 +185,7 @@
         cell.titleLabel.text = @"";
     } else if (rowIndex == 0) {
         cell.backgroundColor = [UIColor yellowColor];
-        cell.titleLabel.text = [NSString stringWithFormat:@"星期%d", columnIndex];
+        cell.titleLabel.text = [weekdays objectAtIndex: columnIndex-1];
     } else if (rowIndex == 13) {
         cell.backgroundColor = [UIColor greenColor];
         cell.titleLabel.text = [NSString stringWithFormat:@"For Editing%@", @""];

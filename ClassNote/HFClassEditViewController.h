@@ -29,8 +29,6 @@
 @property (retain, nonatomic) IBOutlet UITextField *classRoomText;
 @property (retain, nonatomic) IBOutlet UIPickerView *dayInWeekPickerView;
 
-@property (copy, nonatomic) NSString *databaseFilePath;
-
 @property (nonatomic, assign) id <AddHFClassViewControllerDelegate> delegate;
 
 - (IBAction)cancel:(id)sender;

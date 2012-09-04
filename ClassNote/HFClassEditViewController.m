@@ -7,8 +7,6 @@
 //
 
 #import "HFClassEditViewController.h"
-#import "sqlite3.h"
-#define kDatabaseName @"database.sqlite3"
 
 @interface HFClassEditViewController ()
 
@@ -19,7 +17,6 @@
 @synthesize lessonText;
 @synthesize classRoomText;
 @synthesize dayInWeekPickerView;
-@synthesize databaseFilePath;
 @synthesize delegate;
 @synthesize hfClass;
 @synthesize scrollView;
@@ -28,11 +25,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        self.databaseFilePath = [documentsDirectory stringByAppendingPathComponent:kDatabaseName];
-    }
     return self;
 }
 

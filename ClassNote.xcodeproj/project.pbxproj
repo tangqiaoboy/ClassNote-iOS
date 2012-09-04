@@ -28,8 +28,8 @@
 		85AB0B0F15988E050065020C /* Readme.textile in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0AF515988E050065020C /* Readme.textile */; };
 		85AB0B1C15989C470065020C /* ClassCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB0B1B15989C470065020C /* ClassCellView.xib */; };
 		85AB0B1F15989F540065020C /* HFClassGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB0B1E15989F540065020C /* HFClassGridViewCell.m */; };
+		85E035D615F64FE70009FAB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85E035D815F64FE70009FAB8 /* Localizable.strings */; };
 		85E644CD15F1C0A300AA0FA2 /* HFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E644CC15F1C0A300AA0FA2 /* HFClass.m */; };
-		85F356761599628E000E1B6F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F356751599628E000E1B6F /* libsqlite3.dylib */; };
 		85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */; };
 		85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F35685159994D3000E1B6F /* HFClassEditViewController.m */; };
 		85F35688159994D4000E1B6F /* HFClassEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85F35686159994D3000E1B6F /* HFClassEditView.xib */; };
@@ -71,9 +71,10 @@
 		85AB0B1B15989C470065020C /* ClassCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassCellView.xib; sourceTree = "<group>"; };
 		85AB0B1D15989F540065020C /* HFClassGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClassGridViewCell.h; sourceTree = "<group>"; };
 		85AB0B1E15989F540065020C /* HFClassGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClassGridViewCell.m; sourceTree = "<group>"; };
+		85E035D715F64FE70009FAB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		85E035DA15F650180009FAB8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		85E644CB15F1C0A300AA0FA2 /* HFClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFClass.h; sourceTree = "<group>"; };
 		85E644CC15F1C0A300AA0FA2 /* HFClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFClass.m; sourceTree = "<group>"; };
-		85F356751599628E000E1B6F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		85F3568015997CBC000E1B6F /* DTGridViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTGridViewAppDelegate.h; sourceTree = "<group>"; };
 		85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGridViewAppDelegate.m; sourceTree = "<group>"; };
 		85F35684159994D3000E1B6F /* HFClassEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFClassEditViewController.h; path = ClassNote/HFClassEditViewController.h; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				852EC1BF159C4AA40018A30E /* CoreData.framework in Frameworks */,
-				85F356761599628E000E1B6F /* libsqlite3.dylib in Frameworks */,
 				85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */,
 				85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */,
 				85AB0AB115988CD60065020C /* CoreGraphics.framework in Frameworks */,
@@ -114,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				852EC1DA159C56830018A30E /* View Controllers */,
-				85F356751599628E000E1B6F /* libsqlite3.dylib */,
 				85AB0AC915988E050065020C /* DTGridView */,
 				85AB0AB215988CD60065020C /* ClassNote */,
 				85AB0AAB15988CD60065020C /* Frameworks */,
@@ -166,6 +165,7 @@
 				85AB0AB515988CD60065020C /* InfoPlist.strings */,
 				85AB0AB815988CD60065020C /* main.m */,
 				85AB0ABA15988CD60065020C /* ClassNote-Prefix.pch */,
+				85E035D815F64FE70009FAB8 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +246,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 85AB0A9D15988CD50065020C;
 			productRefGroup = 85AB0AA915988CD60065020C /* Products */;
@@ -268,6 +269,7 @@
 				85AB0B0F15988E050065020C /* Readme.textile in Resources */,
 				85AB0B1C15989C470065020C /* ClassCellView.xib in Resources */,
 				85F35688159994D4000E1B6F /* HFClassEditView.xib in Resources */,
+				85E035D615F64FE70009FAB8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +316,15 @@
 			);
 			name = HFViewController.xib;
 			path = ClassNote;
+			sourceTree = "<group>";
+		};
+		85E035D815F64FE70009FAB8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85E035D715F64FE70009FAB8 /* en */,
+				85E035DA15F650180009FAB8 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
