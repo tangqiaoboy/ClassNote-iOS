@@ -19,12 +19,14 @@
     NSInteger dayInWeek;
     NSInteger start;
     NSInteger end;
+    bool keyboardShown;
+    UITextField *activeField;
 }
 @property (nonatomic, retain) HFClass *hfClass;
 
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (retain, nonatomic) IBOutlet UITextField *lessonText;
 @property (retain, nonatomic) IBOutlet UITextField *classRoomText;
-
 @property (retain, nonatomic) IBOutlet UIPickerView *dayInWeekPickerView;
 
 @property (copy, nonatomic) NSString *databaseFilePath;

@@ -22,6 +22,8 @@
 @synthesize databaseFilePath;
 @synthesize delegate;
 @synthesize hfClass;
+@synthesize scrollView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,6 +59,8 @@
     [dayInWeekPickerView selectRow:dayInWeek inComponent:0 animated:false];
     [dayInWeekPickerView selectRow:(start-1) inComponent:1 animated:false];
     [dayInWeekPickerView selectRow:(end-1) inComponent:2 animated:false];
+    
+    [self registerForKeyboardNotifications];
 }
 
 - (void)viewDidUnload
@@ -64,6 +68,8 @@
     [self setLessonText:nil];
     [self setClassRoomText:nil];
     [self setDayInWeekPickerView:nil];
+    [self setView:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -86,54 +92,6 @@
     [hfClass setDayinweek:[NSNumber numberWithInteger:dayInWeek]];
     [hfClass setRoom:classRoomText.text];
     
-    
-    ////////////TO be deleted
-    //打开或创建数据库
-//    sqlite3 *database;
-//    if (sqlite3_open([self.databaseFilePath UTF8String] , &database) != SQLITE_OK) {
-//        sqlite3_close(database);
-//        NSAssert(0, @"打开数据库失败！");
-//    }
-    
-//    char *update = "INSERT OR REPLACE INTO CLASS (LESSON_ID, ROOM, DAYINWEEK, START, END) VALUES (?, ?, ?, ?, ?);";
-//    sqlite3_stmt *stmt;
-//    
-//    int lesson_id = 1;
-//    if (sqlite3_prepare_v2(database, update, -1, &stmt, nil) == SQLITE_OK) {
-//        sqlite3_bind_int(stmt, 1, lesson_id);
-//        sqlite3_bind_text(stmt, 2, [classRoomText.text UTF8String], -1, NULL);
-//        sqlite3_bind_int(stmt, 3, dayInWeek);
-//        sqlite3_bind_int(stmt, 4, start);
-//        sqlite3_bind_int(stmt, 5, end);
-//    }
-//    char *errorMsg = NULL;
-//    if (sqlite3_step(stmt) != SQLITE_DONE)
-//        NSAssert(0, @"更新数据库表CLASS出错: %s", errorMsg);
-//    sqlite3_finalize(stmt);
-//    
-//    // 编辑完成，退回到主界面
-//    [self.navigationController popViewControllerAnimated:TRUE];
-//    
-//    //执行查询
-//    NSString *query = @"SELECT ID, LESSON_ID, ROOM, DAYINWEEK, START, END FROM CLASS ORDER BY ID";
-//    sqlite3_stmt *statement;
-//    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
-//        //依次读取数据库表格LESSONS中每行的内容，并显示在对应的TextField
-//        while (sqlite3_step(statement) == SQLITE_ROW) {
-//            //获得数据
-//            int id = sqlite3_column_int(statement, 0);
-//            int lesson_id = sqlite3_column_int(statement, 1);
-//            char *room = (char *)sqlite3_column_text(statement, 2);
-//            
-//            NSLog(@"The id is %d, lesson_id is %d, room is %@", id, lesson_id, [[NSString alloc] initWithUTF8String:room]);
-//        }
-//        sqlite3_finalize(statement);
-//    }
-//    
-//    //关闭数据库
-//    sqlite3_close(database);
-    ///////////////////////////
-    
 	[delegate addViewController:self didFinishWithSave:YES];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -145,6 +103,7 @@
     [lessonText release];
     [classRoomText release];
     [dayInWeekPickerView release];
+    [scrollView release];
     [super dealloc];
 }
 
@@ -205,4 +164,61 @@
     }
     return YES;
 }
+
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasHidden:)
+                                                 name:UIKeyboardDidHideNotification object:nil];
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    CGRect aRect = self.view.frame;
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGRect kbRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    kbRect = [self.view convertRect:kbRect fromView:nil];
+    
+    CGSize kbSize = kbRect.size;
+
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    //CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y + activeField.frame.size.height - kbSize.height + 60); // 52 is the status bar'height plus the topbar's height
+        [scrollView setContentOffset:scrollPoint animated:YES];
+    }     
+}
+
+
+// Called when the UIKeyboardDidHideNotification is sent
+- (void)keyboardWasHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;    
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    activeField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    activeField = nil;
+}
+
 @end
