@@ -20,6 +20,9 @@
     NSFetchedResultsController *fetchedResultsController;
     
     NSMutableDictionary * lessonsDictionary;
+    
+    NSInteger selectedRow;
+    NSInteger selectedColumn;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;

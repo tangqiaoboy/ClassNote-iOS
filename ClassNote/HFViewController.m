@@ -50,7 +50,7 @@
                 NSLocalizedString(@"Saturday", @""),
                 nil];
     
-    lessonsDictionary = [NSMutableDictionary dictionaryWithCapacity:(7*12)];
+    [self setLessonsDictionary:[NSMutableDictionary dictionaryWithCapacity:(7*12)]];
 	
 	return self;
 }
@@ -61,7 +61,7 @@
     
     // edit button
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(editLesson)] autorelease];
+    //self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(editLesson)] autorelease];
     
     // add button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
@@ -108,38 +108,28 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    //self.lessonsDictionary = nil;
+    self.lessonsDictionary = nil;
+    weekdays = nil;
     // Release any properties that are loaded in viewDidLoad or can be recreated lazily.
 	self.fetchedResultsController = nil;
 }
 
 - (void)addLesson {
-    // Create and configure a new instance of the Event entity.
-    HFClass *hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
-    
-    [hfClass setStart:[NSNumber numberWithInt:1]];
-    [hfClass setEnd:[NSNumber numberWithInt:3]];
-    [hfClass setDayinweek:[NSNumber numberWithInt:4]];
-    
-    NSError *error = nil;
-    if (![managedObjectContext save:&error]) {
-        // TODO: handle the erroe
-        NSLog(@"Save failed.%@", @"Nothing");
-    }
-}
-
-- (void)editLesson {
     HFClassEditViewController *vc = [[HFClassEditViewController alloc] initWithNibName:@"HFClassEditView" bundle:nil];
     vc.delegate = self;
-//    
-//    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
-//	self.addingManagedObjectContext = addingContext;
-//	[addingContext release];
+    //    
+    //    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
+    //	self.addingManagedObjectContext = addingContext;
+    //	[addingContext release];
     
     vc.hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
     
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
+}
+
+- (void)editLesson {
+    // TODO
 }
 
 // 强制横屏
@@ -151,6 +141,7 @@
 - (void)dealloc {
     [colours release];
     [lessonsDictionary release];
+    [weekdays release];
     [managedObjectContext release];
     [fetchedResultsController release];
     [super dealloc];
@@ -192,8 +183,12 @@
         cell.backgroundColor = [UIColor blueColor];
         cell.titleLabel.text = [NSString stringWithFormat:@"%d", rowIndex];
     } else {
-//        [self fetchedResultsController] 
-        cell.backgroundColor = [UIColor whiteColor];
+        if (rowIndex == selectedRow && columnIndex == selectedColumn) {
+            cell.backgroundColor = [UIColor redColor];
+        } else {
+            cell.backgroundColor = [UIColor whiteColor];
+        }
+        
         NSNumber * key = [NSNumber numberWithInt:(columnIndex-1) * 7 + rowIndex - 1];
         HFClass * class = [lessonsDictionary objectForKey:key];
         if (class) {
@@ -322,4 +317,11 @@
     // The application is about to become inactive.
 }
 
+
+//
+- (void)gridView:(DTGridView *)gridView selectionMadeAtRow:(NSInteger)rowIndex column:(NSInteger)columnIndex {
+    selectedRow = rowIndex;
+    selectedColumn = columnIndex;
+    [self.gridView setNeedsDisplay];
+}
 @end

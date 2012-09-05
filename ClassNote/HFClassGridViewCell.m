@@ -34,14 +34,6 @@
     CGContextSetRGBStrokeColor(contextRef, 0.5, 0.5, 0.5, 1.0);
     CGContextStrokeRect(contextRef, rect);
     
-    if (self.selected) {
-        self.backgroundColor = [UIColor yellowColor];
-    }
-    
-    if (self.highlighted) {
-        self.backgroundColor= [UIColor greenColor];
-    }
-    
 	NSInteger halfHeight = (NSInteger)(self.frame.size.height/2.0);
     NSInteger halfWidth = (NSInteger)(self.frame.size.width/2.0);
 	
@@ -65,8 +57,6 @@
 
 /////
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    // triger to repaint, the color must be different
-    self.backgroundColor = [UIColor redColor];
 	[super touchesBegan:touches withEvent:event];
     
 }
