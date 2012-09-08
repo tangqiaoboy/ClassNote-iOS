@@ -197,8 +197,8 @@
         } else {
             cell.backgroundColor = [UIColor whiteColor];
         }
-        
-        NSNumber * key = [NSNumber numberWithInt:(columnIndex-1) * CLASSES_IN_DAY + rowIndex - 1];
+        // rowIndex start from 1 - 12, columnIndex from 1 - 7(dayInWeek 0-6)
+        NSNumber * key = [NSNumber numberWithInt:(columnIndex-1) * CLASSES_IN_DAY + rowIndex];
         HFClass * class = [lessonsDictionary objectForKey:key];
         if (class) {
             cell.titleLabel.text = class.lesson.name;
@@ -214,6 +214,9 @@
 - (void)addViewController:(HFClassEditViewController *)controller didFinishWithSave:(BOOL)save {
 	
 	if (save) {
+        NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
+		[dnc addObserver:self selector:@selector(addControllerContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:addingManagedObjectContext];
+        
         // do save
         // Create and configure a new instance of the Event entity.
         NSError *error;
@@ -222,11 +225,20 @@
 			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 			exit(-1);  // Fail
 		}
+        
+        [dnc removeObserver:self name:NSManagedObjectContextDidSaveNotification object:addingManagedObjectContext];
     }
     
     self.addingManagedObjectContext = nil;
     
     //[self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)addControllerContextDidSave:(NSNotification*)saveNotification {
+	
+	NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
+	// Merging changes causes the fetched results controller to update its results
+	[context mergeChangesFromContextDidSaveNotification:saveNotification];	
 }
 
 /**
@@ -275,12 +287,11 @@
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    /*
 	switch (type) {
         case NSFetchedResultsChangeInsert:
         {
             HFClass *class = (HFClass *)anObject;
-            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * 7 + [class.start intValue]];
+            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * CLASSES_IN_DAY + [class.start intValue]];
             if ([lessonsDictionary objectForKey:key]){
                 NSLog(@"The class for key %d already exists.", [key intValue]);
             }
@@ -294,21 +305,22 @@
         case NSFetchedResultsChangeDelete:
         {
             HFClass *class = (HFClass *)anObject;
-            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * 7 + [class.start intValue]];
+            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * DAYS_IN_WEEK + [class.start intValue]];
             [lessonsDictionary removeObjectForKey:key];
+            break;
         }
         case NSFetchedResultsChangeUpdate:
         {
             
             HFClass *class = (HFClass *)anObject;
-            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * 7 + [class.start intValue]];
+            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * DAYS_IN_WEEK + [class.start intValue]];
              
             // do nothing.
+            break;
         }
         default:
             break;
     }
-	*/
 }
 
 
@@ -320,7 +332,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
 	// The fetch controller has sent all current change notifications, so tell the table view to process all updates.
-    [self.view setNeedsDisplay];
+    [self.gridView setNeedsDisplay];
 	
 }
 
