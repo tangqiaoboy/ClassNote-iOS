@@ -223,6 +223,7 @@
 //The event handling method
 - (void)editLesson:(UITapGestureRecognizer *)recognizer {
     HFClassEditViewController *vc = [[HFClassEditViewController alloc] initWithNibName:@"HFClassEditView" bundle:nil];
+    vc.title = NSLocalizedString(@"editLesson", @"");
     if (selectedRow > 0 & selectedColumn > 0) {
         vc.dayInWeek = selectedColumn - 1;
         vc.start = selectedRow;

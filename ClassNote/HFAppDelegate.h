@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GuideViewController.h"
 
-@interface HFAppDelegate : UIResponder <UIApplicationDelegate> {
+@interface HFAppDelegate : UIResponder <UIApplicationDelegate, GuideViewControllerDelegate> {
     UIWindow *window;
 	UINavigationController *navigationController;
     

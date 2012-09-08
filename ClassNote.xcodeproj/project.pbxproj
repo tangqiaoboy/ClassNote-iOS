@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850E375E15FB90AE00EE3F6D /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850E375815FB90AE00EE3F6D /* 1.jpg */; };
+		850E375F15FB90AE00EE3F6D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850E375915FB90AE00EE3F6D /* 2.jpg */; };
+		850E376315FB90AE00EE3F6D /* test6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850E375D15FB90AE00EE3F6D /* test6.jpg */; };
+		850E377115FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 850E376F15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m */; };
+		850E378215FBB7C600EE3F6D /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 850E378115FBB7C600EE3F6D /* default.png */; };
 		852EC1BF159C4AA40018A30E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852EC1BE159C4AA40018A30E /* CoreData.framework */; };
 		852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */; };
+		8590DF9715FBB83800A7019F /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8590DF9515FBB83800A7019F /* GuideViewController.m */; };
+		8590DF9815FBB83800A7019F /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8590DF9615FBB83800A7019F /* GuideViewController.xib */; };
 		85AB0AAD15988CD60065020C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAC15988CD60065020C /* UIKit.framework */; };
 		85AB0AAF15988CD60065020C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AAE15988CD60065020C /* Foundation.framework */; };
 		85AB0AB115988CD60065020C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AB015988CD60065020C /* CoreGraphics.framework */; };
@@ -37,8 +44,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		850E375815FB90AE00EE3F6D /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		850E375915FB90AE00EE3F6D /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		850E375D15FB90AE00EE3F6D /* test6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test6.jpg; sourceTree = "<group>"; };
+		850E376E15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SplitImageIntoTwoParts.h"; path = "ClassNote/UIImage+SplitImageIntoTwoParts.h"; sourceTree = "<group>"; };
+		850E376F15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SplitImageIntoTwoParts.m"; path = "ClassNote/UIImage+SplitImageIntoTwoParts.m"; sourceTree = "<group>"; };
+		850E378115FBB7C600EE3F6D /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		852EC1BE159C4AA40018A30E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		852EC1C2159C4AFA0018A30E /* ClassNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassNote.xcdatamodel; sourceTree = "<group>"; };
+		8590DF9415FBB83800A7019F /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = ClassNote/GuideViewController.h; sourceTree = "<group>"; };
+		8590DF9515FBB83800A7019F /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuideViewController.m; path = ClassNote/GuideViewController.m; sourceTree = "<group>"; };
+		8590DF9615FBB83800A7019F /* GuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuideViewController.xib; path = ClassNote/GuideViewController.xib; sourceTree = "<group>"; };
 		85AB0AA815988CD60065020C /* ClassNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AB0AAC15988CD60065020C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		85AB0AAE15988CD60065020C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +116,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		850E375715FB8F1F00EE3F6D /* Guide View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8590DF9415FBB83800A7019F /* GuideViewController.h */,
+				8590DF9515FBB83800A7019F /* GuideViewController.m */,
+				8590DF9615FBB83800A7019F /* GuideViewController.xib */,
+				850E376E15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.h */,
+				850E376F15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m */,
+			);
+			name = "Guide View Controllers";
+			sourceTree = "<group>";
+		};
 		852EC1DA159C56830018A30E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +144,7 @@
 		85AB0A9D15988CD50065020C = {
 			isa = PBXGroup;
 			children = (
+				850E375715FB8F1F00EE3F6D /* Guide View Controllers */,
 				852EC1DA159C56830018A30E /* View Controllers */,
 				85AB0AC915988E050065020C /* DTGridView */,
 				85AB0AB215988CD60065020C /* ClassNote */,
@@ -166,6 +195,10 @@
 		85AB0AB315988CD60065020C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				850E378115FBB7C600EE3F6D /* default.png */,
+				850E375815FB90AE00EE3F6D /* 1.jpg */,
+				850E375915FB90AE00EE3F6D /* 2.jpg */,
+				850E375D15FB90AE00EE3F6D /* test6.jpg */,
 				85AB0AB415988CD60065020C /* ClassNote-Info.plist */,
 				85AB0AB515988CD60065020C /* InfoPlist.strings */,
 				85AB0AB815988CD60065020C /* main.m */,
@@ -275,6 +308,11 @@
 				85AB0B1C15989C470065020C /* ClassCellView.xib in Resources */,
 				85F35688159994D4000E1B6F /* HFClassEditView.xib in Resources */,
 				85E035D615F64FE70009FAB8 /* Localizable.strings in Resources */,
+				850E375E15FB90AE00EE3F6D /* 1.jpg in Resources */,
+				850E375F15FB90AE00EE3F6D /* 2.jpg in Resources */,
+				850E376315FB90AE00EE3F6D /* test6.jpg in Resources */,
+				850E378215FBB7C600EE3F6D /* default.png in Resources */,
+				8590DF9815FBB83800A7019F /* GuideViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +339,8 @@
 				852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */,
 				85E035E615F65EF70009FAB8 /* HFLesson.m in Sources */,
 				85E035E915F65F090009FAB8 /* HFClass.m in Sources */,
+				850E377115FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m in Sources */,
+				8590DF9715FBB83800A7019F /* GuideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

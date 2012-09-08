@@ -9,6 +9,7 @@
 #import "HFAppDelegate.h"
 
 #import "HFViewController.h"
+#import "GuideViewController.h"
 
 @implementation HFAppDelegate
 
@@ -27,9 +28,42 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    //self.viewController = [[[HFViewController alloc] initWithNibName:@"HFViewController" bundle:nil] autorelease];
     
+    
+    // Override point for customization after application launch.
+    //增加标识，用于判断是否是第一次启动应用...
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) { 
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"]; 
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"]; 
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+        GuideViewController *appStartController = [[GuideViewController alloc] init];
+        appStartController.delegate = self;
+        
+        window.rootViewController = appStartController;
+    }else {
+        HFViewController *vc = [[HFViewController alloc] init];
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        if (!context) {
+            NSLog(@"ManagedObjectContext created failed. %@", "Nothing");
+        }
+        
+        vc.managedObjectContext = context;
+        
+        navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+        
+        [vc release];
+        
+        [window addSubview:navigationController.view];
+    }
+    
+    [window makeKeyAndVisible];
+    return YES;
+}
+
+- (UIViewController *)goingToMain {
     HFViewController *vc = [[HFViewController alloc] init];
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -43,10 +77,7 @@
     
     [vc release];
     
-    [window addSubview:navigationController.view];
-    //window.rootViewController = navigationController;
-    [window makeKeyAndVisible];
-    return YES;
+    return navigationController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
