@@ -21,7 +21,7 @@
  * 笔记界面，录音和拍照功能研究，图片声音存储。
  */
 
-@synthesize managedObjectContext, lessonsDictionary, fetchedResultsController;
+@synthesize managedObjectContext, addingManagedObjectContext ,lessonsDictionary, fetchedResultsController;
 
 - (id)init {
 	if (![super init])
@@ -90,10 +90,11 @@
         if (! [lessonsDictionary objectForKey:key]) {
             [lessonsDictionary setObject:class forKey:key];
         }
-        NSLog(@"Room: %@", class.room);
+        
+        NSLog(@"LessionName: %@", class.lesson.name);
         NSLog(@"DayInWeek: %@", class.dayinweek);
         NSLog(@"Start: %@", class.start);
-        NSLog(@"LessionName: %@", class.lesson.name);
+        NSLog(@"Room: %@", class.room);
     }
     
     UIApplication *app = [UIApplication sharedApplication];
@@ -122,13 +123,14 @@
         vc.start = selectedRow;
     }
     
-    //    
-    //    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
-    //	self.addingManagedObjectContext = addingContext;
-    //	[addingContext release];
+    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
+	self.addingManagedObjectContext = addingContext;
+	[addingContext release];
     
-    vc.hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
-    vc.hfLesson = (HFLesson *)[NSEntityDescription insertNewObjectForEntityForName:@"HFLesson" inManagedObjectContext:managedObjectContext];
+    [addingManagedObjectContext setPersistentStoreCoordinator:[[fetchedResultsController managedObjectContext] persistentStoreCoordinator]];
+    
+    vc.hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:addingManagedObjectContext];
+    vc.hfLesson = (HFLesson *)[NSEntityDescription insertNewObjectForEntityForName:@"HFLesson" inManagedObjectContext:addingManagedObjectContext];
     
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
@@ -149,6 +151,7 @@
     [lessonsDictionary release];
     [weekdays release];
     [managedObjectContext release];
+    [addingManagedObjectContext release];
     [fetchedResultsController release];
     [super dealloc];
 }
@@ -214,12 +217,14 @@
         // do save
         // Create and configure a new instance of the Event entity.
         NSError *error;
-		if (![managedObjectContext save:&error]) {
+		if (![addingManagedObjectContext save:&error]) {
 			// Update to handle the error appropriately.
 			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 			exit(-1);  // Fail
 		}
     }
+    
+    self.addingManagedObjectContext = nil;
     
     //[self dismissModalViewControllerAnimated:YES];
 }

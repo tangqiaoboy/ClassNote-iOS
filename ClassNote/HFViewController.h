@@ -19,6 +19,7 @@ static const int DAYS_IN_WEEK = 7;
     NSArray *weekdays;
     
     NSManagedObjectContext *managedObjectContext;
+    NSManagedObjectContext *addingManagedObjectContext;
     
     NSFetchedResultsController *fetchedResultsController;
     
@@ -29,6 +30,8 @@ static const int DAYS_IN_WEEK = 7;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, retain) NSManagedObjectContext *addingManagedObjectContext;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
