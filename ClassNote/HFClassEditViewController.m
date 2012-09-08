@@ -17,21 +17,49 @@
 @synthesize lessonText;
 @synthesize classRoomText;
 @synthesize dayInWeekPickerView;
+@synthesize dayInWeekLabel;
+@synthesize startLabel;
+@synthesize endLabel;
+@synthesize lessonLabel;
+@synthesize classRoomLabel;
 @synthesize delegate;
 @synthesize hfClass;
+@synthesize hfLesson;
 @synthesize scrollView;
+@synthesize dayInWeek;
+@synthesize start;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    // default, will be overwrite
+    daysInWeek = [[NSArray alloc] initWithObjects:
+                  NSLocalizedString(@"Sunday", @""),
+                  NSLocalizedString(@"Monday", @""),
+                  NSLocalizedString(@"Tuesday", @""),
+                  NSLocalizedString(@"Wednesday", @""),
+                  NSLocalizedString(@"Thursday", @""),
+                  NSLocalizedString(@"Friday", @""),
+                  NSLocalizedString(@"Saturday", @""),
+                  nil];
+    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"New Lesson";
+    
+    dayInWeekLabel.text = NSLocalizedString(@"dayInWeek", @"");
+    startLabel.text = NSLocalizedString(@"start", @"");
+    endLabel.text = NSLocalizedString(@"end", @"");
+    lessonLabel.text = NSLocalizedString(@"lesson", @"");
+    classRoomLabel.text = NSLocalizedString(@"classRoom", @"");
+    
+    self.title = NSLocalizedString(@"newLesson", @"");
+    
     
     lessonText.delegate = self;
     classRoomText.delegate = self;
@@ -40,13 +68,8 @@
                                                                                            target:self action:@selector(cancel:)] autorelease];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
                                                                                             target:self action:@selector(save:)] autorelease];
-    
-    daysInWeek = [[NSArray alloc] initWithObjects:@"Sun.", @"Mon.",@"Tues.",@"Wed.",@"Thur.", @"Fri.", @"Sat.", nil];
-    
-    dayInWeek = 0;
-    
-    start = 1;
-    end = 2;
+    // default value of end
+    end = start + 1;
     
     [dayInWeekPickerView selectRow:dayInWeek inComponent:0 animated:false];
     [dayInWeekPickerView selectRow:(start-1) inComponent:1 animated:false];
@@ -62,6 +85,11 @@
     [self setDayInWeekPickerView:nil];
     [self setView:nil];
     [self setScrollView:nil];
+    [self setDayInWeekLabel:nil];
+    [self setStartLabel:nil];
+    [self setEndLabel:nil];
+    [self setLessonLabel:nil];
+    [self setClassRoomLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -78,6 +106,9 @@
 }
 
 - (IBAction)save:(id)sender {
+    [hfLesson setName: lessonText.text];
+    [hfClass setLesson:hfLesson];
+    
     //[hfClass setLesson_id:[NSNumber numberWithInt:1]];
     [hfClass setStart:[NSNumber numberWithInteger:start]];
     [hfClass setEnd:[NSNumber numberWithInteger:end]];
@@ -96,6 +127,11 @@
     [classRoomText release];
     [dayInWeekPickerView release];
     [scrollView release];
+    [dayInWeekLabel release];
+    [startLabel release];
+    [endLabel release];
+    [lessonLabel release];
+    [classRoomLabel release];
     [super dealloc];
 }
 
@@ -190,6 +226,7 @@
     aRect.size.height -= kbSize.height;
     if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
         CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y + activeField.frame.size.height - kbSize.height + 60); // 52 is the status bar'height plus the topbar's height
+        // consider that when the keyboard is chinese keyboard, the height is higher, and will hidden the textfield, then the 60 plus is not accurate!
         [scrollView setContentOffset:scrollPoint animated:YES];
     }     
 }

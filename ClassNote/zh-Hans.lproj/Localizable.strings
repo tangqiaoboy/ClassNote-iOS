@@ -13,3 +13,9 @@
 "Saturday" = "周六";
 "ClassNote" = "课堂笔记";
 "Edit" = "编辑";
+"dayInWeek" = "周几";
+"start" = "开始";
+"end" = "结束";
+"lesson" = "课程";
+"classRoom" = "教室";
+"newLesson" = "新建课程";

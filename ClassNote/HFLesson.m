@@ -12,7 +12,6 @@
 @implementation HFLesson
 
 @dynamic book;
-@dynamic id;
 @dynamic name;
 @dynamic teacher;
 

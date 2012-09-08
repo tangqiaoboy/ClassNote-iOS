@@ -50,7 +50,7 @@
                 NSLocalizedString(@"Saturday", @""),
                 nil];
     
-    [self setLessonsDictionary:[NSMutableDictionary dictionaryWithCapacity:(7*12)]];
+    [self setLessonsDictionary:[NSMutableDictionary dictionaryWithCapacity:(DAYS_IN_WEEK*CLASSES_IN_DAY)]];
 	
 	return self;
 }
@@ -86,14 +86,14 @@
     
     //http://www.raywenderlich.com/934/core-data-on-ios-5-tutorial-getting-started
     for (HFClass *class in fetchedObjects) {
-        NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * 7 + [class.start intValue]];
+        NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * CLASSES_IN_DAY + [class.start intValue]];
         if (! [lessonsDictionary objectForKey:key]) {
             [lessonsDictionary setObject:class forKey:key];
         }
         NSLog(@"Room: %@", class.room);
         NSLog(@"DayInWeek: %@", class.dayinweek);
         NSLog(@"Start: %@", class.start);
-        NSLog(@"LessionId: %@", class.lesson);
+        NSLog(@"LessionName: %@", class.lesson.name);
     }
     
     UIApplication *app = [UIApplication sharedApplication];
@@ -117,12 +117,18 @@
 - (void)addLesson {
     HFClassEditViewController *vc = [[HFClassEditViewController alloc] initWithNibName:@"HFClassEditView" bundle:nil];
     vc.delegate = self;
+    if (selectedRow > 0 & selectedColumn > 0) {
+        vc.dayInWeek = selectedColumn - 1;
+        vc.start = selectedRow;
+    }
+    
     //    
     //    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
     //	self.addingManagedObjectContext = addingContext;
     //	[addingContext release];
     
     vc.hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:managedObjectContext];
+    vc.hfLesson = (HFLesson *)[NSEntityDescription insertNewObjectForEntityForName:@"HFLesson" inManagedObjectContext:managedObjectContext];
     
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
@@ -189,10 +195,10 @@
             cell.backgroundColor = [UIColor whiteColor];
         }
         
-        NSNumber * key = [NSNumber numberWithInt:(columnIndex-1) * 7 + rowIndex - 1];
+        NSNumber * key = [NSNumber numberWithInt:(columnIndex-1) * CLASSES_IN_DAY + rowIndex - 1];
         HFClass * class = [lessonsDictionary objectForKey:key];
         if (class) {
-            cell.titleLabel.text = [class.lesson description];
+            cell.titleLabel.text = class.lesson.name;
         } else {
             cell.titleLabel.text = @"";
         }

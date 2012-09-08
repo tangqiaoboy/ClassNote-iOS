@@ -13,3 +13,9 @@
 "Saturday" = "Sat.";
 "ClassNote" = "ClassNote";
 "Edit" = "Edit";
+"dayInWeek" = "Day In Week";
+"start" = "Start";
+"end" = "End";
+"lesson" = "Lesson";
+"classRoom" = "Class Room";
+"newLesson" = "New Lesson";

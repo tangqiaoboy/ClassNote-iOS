@@ -11,6 +11,9 @@
 #import "HFClassEditViewController.h"
 #import "HFClass.h"
 
+static const int CLASSES_IN_DAY = 12;
+static const int DAYS_IN_WEEK = 7;
+
 @interface HFViewController : DTGridViewController<AddHFClassViewControllerDelegate, NSFetchedResultsControllerDelegate> {
     NSArray *colours;
     NSArray *weekdays;

@@ -13,7 +13,6 @@
 @interface HFLesson : NSManagedObject
 
 @property (nonatomic, retain) NSString * book;
-@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * teacher;
 
