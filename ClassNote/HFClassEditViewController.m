@@ -58,8 +58,6 @@
     lessonLabel.text = NSLocalizedString(@"lesson", @"");
     classRoomLabel.text = NSLocalizedString(@"classRoom", @"");
     
-    self.title = NSLocalizedString(@"newLesson", @"");
-    
     
     lessonText.delegate = self;
     classRoomText.delegate = self;
@@ -74,6 +72,13 @@
     [dayInWeekPickerView selectRow:dayInWeek inComponent:0 animated:false];
     [dayInWeekPickerView selectRow:(start-1) inComponent:1 animated:false];
     [dayInWeekPickerView selectRow:(end-1) inComponent:2 animated:false];
+    
+    if (hfClass) {
+        classRoomText.text = hfClass.room;
+    }
+    if (hfLesson) {
+        lessonText.text = hfLesson.name;
+    }
     
     [self registerForKeyboardNotifications];
 }
@@ -101,7 +106,10 @@
 }
 
 - (IBAction)cancel:(id)sender {
-	[delegate addViewController:self didFinishWithSave:NO];
+    if (delegate) { // add
+        [delegate addViewController:self didFinishWithSave:NO];
+    }
+	
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -115,7 +123,17 @@
     [hfClass setDayinweek:[NSNumber numberWithInteger:dayInWeek]];
     [hfClass setRoom:classRoomText.text];
     
-	[delegate addViewController:self didFinishWithSave:YES];
+    if (delegate) { // add
+        [delegate addViewController:self didFinishWithSave:YES];
+    } else {    // edit
+        // Save the changes.
+		NSError *error;
+		if (![hfClass.managedObjectContext save:&error]) {
+			// Update to handle the error appropriately.
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			exit(-1);  // Fail
+		}
+    }
     
     [self.navigationController popViewControllerAnimated:YES];
 }

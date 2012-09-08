@@ -16,7 +16,6 @@
 
 @implementation HFViewController
 /*
- * TODO: 编辑课程，和Class关联。在课程表上显示Class，完善课程。
  * Logo
  * 笔记界面，录音和拍照功能研究，图片声音存储。
  */
@@ -115,31 +114,6 @@
 	self.fetchedResultsController = nil;
 }
 
-- (void)addLesson {
-    HFClassEditViewController *vc = [[HFClassEditViewController alloc] initWithNibName:@"HFClassEditView" bundle:nil];
-    vc.delegate = self;
-    if (selectedRow > 0 & selectedColumn > 0) {
-        vc.dayInWeek = selectedColumn - 1;
-        vc.start = selectedRow;
-    }
-    
-    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
-	self.addingManagedObjectContext = addingContext;
-	[addingContext release];
-    
-    [addingManagedObjectContext setPersistentStoreCoordinator:[[fetchedResultsController managedObjectContext] persistentStoreCoordinator]];
-    
-    vc.hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:addingManagedObjectContext];
-    vc.hfLesson = (HFLesson *)[NSEntityDescription insertNewObjectForEntityForName:@"HFLesson" inManagedObjectContext:addingManagedObjectContext];
-    
-    [self.navigationController pushViewController:vc animated:YES];
-    [vc release];
-}
-
-- (void)editLesson {
-    // TODO
-}
-
 // 强制横屏
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -187,7 +161,20 @@
         cell.titleLabel.text = [weekdays objectAtIndex: columnIndex-1];
     } else if (rowIndex == 13) {
         cell.backgroundColor = [UIColor greenColor];
-        cell.titleLabel.text = [NSString stringWithFormat:@"For Editing%@", @""];
+        NSNumber * key = [NSNumber numberWithInt:(selectedColumn-1) * CLASSES_IN_DAY + selectedRow];
+        HFClass * class = [lessonsDictionary objectForKey:key];
+        
+        if (class) {
+            cell.titleLabel.text = [NSString stringWithFormat:@"Lesson is: %@, class room is:%@", class.lesson.name, class.room];
+            //The setup code (in viewDidLoad in your view controller)
+            UITapGestureRecognizer *singleFingerTap = 
+            [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                    action:@selector(editLesson:)];
+            [cell addGestureRecognizer:singleFingerTap];
+            [singleFingerTap release];
+        } else {
+            cell.titleLabel.text = [NSString stringWithFormat:@"Please select a class to view and edit.%@", @""];
+        }
     } else if (columnIndex == 0) {
         cell.backgroundColor = [UIColor blueColor];
         cell.titleLabel.text = [NSString stringWithFormat:@"%d", rowIndex];
@@ -209,6 +196,46 @@
 	
 	
 	return cell;
+}
+
+- (void)addLesson {
+    HFClassEditViewController *vc = [[HFClassEditViewController alloc] initWithNibName:@"HFClassEditView" bundle:nil];
+    vc.title = NSLocalizedString(@"newLesson", @"");
+    vc.delegate = self;
+    if (selectedRow > 0 & selectedColumn > 0) {
+        vc.dayInWeek = selectedColumn - 1;
+        vc.start = selectedRow;
+    }
+    
+    NSManagedObjectContext *addingContext = [[NSManagedObjectContext alloc] init];
+	self.addingManagedObjectContext = addingContext;
+	[addingContext release];
+    
+    [addingManagedObjectContext setPersistentStoreCoordinator:[[fetchedResultsController managedObjectContext] persistentStoreCoordinator]];
+    
+    vc.hfClass = (HFClass *)[NSEntityDescription insertNewObjectForEntityForName:@"HFClass" inManagedObjectContext:addingManagedObjectContext];
+    vc.hfLesson = (HFLesson *)[NSEntityDescription insertNewObjectForEntityForName:@"HFLesson" inManagedObjectContext:addingManagedObjectContext];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
+}
+
+//The event handling method
+- (void)editLesson:(UITapGestureRecognizer *)recognizer {
+    HFClassEditViewController *vc = [[HFClassEditViewController alloc] initWithNibName:@"HFClassEditView" bundle:nil];
+    if (selectedRow > 0 & selectedColumn > 0) {
+        vc.dayInWeek = selectedColumn - 1;
+        vc.start = selectedRow;
+    }
+    
+    NSNumber * key = [NSNumber numberWithInt:vc.dayInWeek * CLASSES_IN_DAY + vc.start];
+    HFClass * class = [lessonsDictionary objectForKey:key];
+    
+    vc.hfClass = class;
+    vc.hfLesson = class.lesson;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 - (void)addViewController:(HFClassEditViewController *)controller didFinishWithSave:(BOOL)save {
@@ -305,15 +332,15 @@
         case NSFetchedResultsChangeDelete:
         {
             HFClass *class = (HFClass *)anObject;
-            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * DAYS_IN_WEEK + [class.start intValue]];
+            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * CLASSES_IN_DAY + [class.start intValue]];
             [lessonsDictionary removeObjectForKey:key];
             break;
         }
         case NSFetchedResultsChangeUpdate:
         {
             
-            HFClass *class = (HFClass *)anObject;
-            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * DAYS_IN_WEEK + [class.start intValue]];
+//            HFClass *class = (HFClass *)anObject;
+//            NSNumber * key = [NSNumber numberWithInt:[class.dayinweek intValue] * CLASSES_IN_DAY + [class.start intValue]];
              
             // do nothing.
             break;
@@ -343,8 +370,10 @@
 
 //
 - (void)gridView:(DTGridView *)gridView selectionMadeAtRow:(NSInteger)rowIndex column:(NSInteger)columnIndex {
-    selectedRow = rowIndex;
-    selectedColumn = columnIndex;
-    [self.gridView setNeedsDisplay];
+    if (rowIndex != 13) {
+        selectedRow = rowIndex;
+        selectedColumn = columnIndex;
+        [self.gridView setNeedsDisplay];
+    }
 }
 @end
