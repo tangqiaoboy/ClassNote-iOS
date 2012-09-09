@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "GuideViewController.h"
 
-@interface HFAppDelegate : UIResponder <UIApplicationDelegate, GuideViewControllerDelegate> {
+@interface HFAppDelegate : UIResponder <UIApplicationDelegate, GuideViewControllerDelegate, UIAlertViewDelegate> {
     UIWindow *window;
 	UINavigationController *navigationController;
     
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    
+    UIAlertView* _confirmAlert;
+    UIAlertView* _completeAlert;
 
 }
 
