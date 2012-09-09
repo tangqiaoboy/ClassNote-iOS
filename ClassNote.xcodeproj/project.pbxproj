@@ -11,6 +11,8 @@
 		850E375F15FB90AE00EE3F6D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850E375915FB90AE00EE3F6D /* 2.jpg */; };
 		850E376315FB90AE00EE3F6D /* test6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850E375D15FB90AE00EE3F6D /* test6.jpg */; };
 		850E377115FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 850E376F15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m */; };
+		851B4FE815FCE73600A98CD8 /* YISplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 851B4FE515FCE73600A98CD8 /* YISplashScreen.m */; };
+		851B4FE915FCE73600A98CD8 /* YISplashScreenAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 851B4FE715FCE73600A98CD8 /* YISplashScreenAnimation.m */; };
 		852EC1BF159C4AA40018A30E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852EC1BE159C4AA40018A30E /* CoreData.framework */; };
 		852EC1C3159C4AFA0018A30E /* ClassNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 852EC1C1159C4AFA0018A30E /* ClassNote.xcdatamodeld */; };
 		8590DF9715FBB83800A7019F /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8590DF9515FBB83800A7019F /* GuideViewController.m */; };
@@ -39,8 +41,6 @@
 		85F3568315997CCA000E1B6F /* DTGridViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F3568215997CCA000E1B6F /* DTGridViewAppDelegate.m */; };
 		85F35687159994D4000E1B6F /* HFClassEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F35685159994D3000E1B6F /* HFClassEditViewController.m */; };
 		85F35688159994D4000E1B6F /* HFClassEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85F35686159994D3000E1B6F /* HFClassEditView.xib */; };
-		85F910A315FC5DCE00ADB1E9 /* YISplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F910A015FC5DCE00ADB1E9 /* YISplashScreen.m */; };
-		85F910A415FC5DCE00ADB1E9 /* YISplashScreenAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F910A215FC5DCE00ADB1E9 /* YISplashScreenAnimation.m */; };
 		85F910A615FC5DEC00ADB1E9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85F910A515FC5DEC00ADB1E9 /* Default@2x.png */; };
 		85F910B315FC638500ADB1E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AB0AB015988CD60065020C /* CoreGraphics.framework */; };
 		85F910B415FC65AB00ADB1E9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F910B115FC634C00ADB1E9 /* QuartzCore.framework */; };
@@ -52,6 +52,10 @@
 		850E375D15FB90AE00EE3F6D /* test6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test6.jpg; sourceTree = "<group>"; };
 		850E376E15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SplitImageIntoTwoParts.h"; path = "ClassNote/UIImage+SplitImageIntoTwoParts.h"; sourceTree = "<group>"; };
 		850E376F15FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SplitImageIntoTwoParts.m"; path = "ClassNote/UIImage+SplitImageIntoTwoParts.m"; sourceTree = "<group>"; };
+		851B4FE415FCE73600A98CD8 /* YISplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISplashScreen.h; sourceTree = "<group>"; };
+		851B4FE515FCE73600A98CD8 /* YISplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISplashScreen.m; sourceTree = "<group>"; };
+		851B4FE615FCE73600A98CD8 /* YISplashScreenAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISplashScreenAnimation.h; sourceTree = "<group>"; };
+		851B4FE715FCE73600A98CD8 /* YISplashScreenAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISplashScreenAnimation.m; sourceTree = "<group>"; };
 		852EC1BE159C4AA40018A30E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		852EC1C2159C4AFA0018A30E /* ClassNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassNote.xcdatamodel; sourceTree = "<group>"; };
 		8590DF9415FBB83800A7019F /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = ClassNote/GuideViewController.h; sourceTree = "<group>"; };
@@ -101,10 +105,6 @@
 		85F35684159994D3000E1B6F /* HFClassEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFClassEditViewController.h; path = ClassNote/HFClassEditViewController.h; sourceTree = "<group>"; };
 		85F35685159994D3000E1B6F /* HFClassEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFClassEditViewController.m; path = ClassNote/HFClassEditViewController.m; sourceTree = "<group>"; };
 		85F35686159994D3000E1B6F /* HFClassEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HFClassEditView.xib; path = ClassNote/HFClassEditView.xib; sourceTree = "<group>"; };
-		85F9109F15FC5DCE00ADB1E9 /* YISplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YISplashScreen.h; path = YISplashScreen/YISplashScreen.h; sourceTree = "<group>"; };
-		85F910A015FC5DCE00ADB1E9 /* YISplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YISplashScreen.m; path = YISplashScreen/YISplashScreen.m; sourceTree = "<group>"; };
-		85F910A115FC5DCE00ADB1E9 /* YISplashScreenAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YISplashScreenAnimation.h; path = YISplashScreen/YISplashScreenAnimation.h; sourceTree = "<group>"; };
-		85F910A215FC5DCE00ADB1E9 /* YISplashScreenAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YISplashScreenAnimation.m; path = YISplashScreen/YISplashScreenAnimation.m; sourceTree = "<group>"; };
 		85F910A515FC5DEC00ADB1E9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		85F910B115FC634C00ADB1E9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -262,10 +262,10 @@
 		85F9109D15FC5DBB00ADB1E9 /* YISplashScreen */ = {
 			isa = PBXGroup;
 			children = (
-				85F9109F15FC5DCE00ADB1E9 /* YISplashScreen.h */,
-				85F910A015FC5DCE00ADB1E9 /* YISplashScreen.m */,
-				85F910A115FC5DCE00ADB1E9 /* YISplashScreenAnimation.h */,
-				85F910A215FC5DCE00ADB1E9 /* YISplashScreenAnimation.m */,
+				851B4FE415FCE73600A98CD8 /* YISplashScreen.h */,
+				851B4FE515FCE73600A98CD8 /* YISplashScreen.m */,
+				851B4FE615FCE73600A98CD8 /* YISplashScreenAnimation.h */,
+				851B4FE715FCE73600A98CD8 /* YISplashScreenAnimation.m */,
 			);
 			name = YISplashScreen;
 			sourceTree = "<group>";
@@ -363,8 +363,8 @@
 				85E035E915F65F090009FAB8 /* HFClass.m in Sources */,
 				850E377115FBA1B700EE3F6D /* UIImage+SplitImageIntoTwoParts.m in Sources */,
 				8590DF9715FBB83800A7019F /* GuideViewController.m in Sources */,
-				85F910A315FC5DCE00ADB1E9 /* YISplashScreen.m in Sources */,
-				85F910A415FC5DCE00ADB1E9 /* YISplashScreenAnimation.m in Sources */,
+				851B4FE815FCE73600A98CD8 /* YISplashScreen.m in Sources */,
+				851B4FE915FCE73600A98CD8 /* YISplashScreenAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
